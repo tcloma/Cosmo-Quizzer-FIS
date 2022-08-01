@@ -1,8 +1,14 @@
 const UI = () => {
+
+  const handleClick = () => {
+    console.log('Hi')
+  }
+
   return(
-    <div>
-      {/* <h1> UI ty</h1>
-      <h1> UI ash </h1> */}
+    <div id="ui">
+      <h1 onClick={handleClick}> <span className="material-symbols-outlined" style={{fontSize:'50px'}}>
+        menu
+      </span></h1>
     </div>
   )
 }
