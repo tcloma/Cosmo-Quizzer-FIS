@@ -1,7 +1,7 @@
 const UI = () => {
   return(
     <div>
-      <h1> UI </h1>
+      <h1> UI ash </h1>
     </div>
   )
 }
