@@ -1,3 +1,9 @@
+body {
+  background-color: #282a3a;
+  color: white;
+}
+
 .App {
   text-align: center;
+  font-family: 'Roboto Mono', monospace;
 }
