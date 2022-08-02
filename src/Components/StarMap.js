@@ -1,17 +1,7 @@
 
 
-const StarMap = ({setPlanetId}) => {
 
-  const getUrl = (id) => `https://app.pixelencounter.com/api/basic/planets?frame=13&width=800&height=800&size=500&disableStars=true&disableBackground=true&id=${id}`
-
-  const ROWS = 5
-  const COLS = 5
-
-  const squares = [...Array(ROWS)].map(() => Array(COLS).fill(""))
-
-  for (let i = 0; i < 5; i++) {
-    squares[i][Math.floor(Math.random() * 5)] = getUrl(i+1)
-  }
+const StarMap = ({ROWS, COLS, squares, setPlanetId}) => {
 
   return (
     <div>
@@ -29,7 +19,7 @@ const StarMap = ({setPlanetId}) => {
       }}>
         {squares.map((element, row) => {
           return element.map((el, col) => {
-            return (<div style={{
+            return (<div onClick={() => el && setPlanetId(el.slice(-1))} style={{
               width: "99px",
               height: "99px",
               border: "1px solid",
