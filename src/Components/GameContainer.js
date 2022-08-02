@@ -20,6 +20,7 @@ const GameContainer = () => {
   const [squares, setSquares] = useState([])
 
   const [planetId, setPlanetId] = useState(1)
+  const [playerId, setPlayerId] = useState(1)
 
   useEffect(() => {
     let newSquares = [...Array(ROWS)].map(() => Array(COLS).fill(""))
@@ -30,8 +31,7 @@ const GameContainer = () => {
   }, [])
 
   return(
-    <div>
-      <h1> Game Container </h1>
+    <div style={{marginTop: '20px'}}>
       <Router>
         <NavBar />
         <Routes>
