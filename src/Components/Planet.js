@@ -56,7 +56,7 @@ const Planet = ({ planetId, playerId }) => {
   return (
     <div id="closeup-planet">
       <div>
-        <img src={planetUrl} alt="planet" />
+        <img className='planet'src={planetUrl} alt="planet" />
         <img
           className='player'
           alt='player'

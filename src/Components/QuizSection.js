@@ -6,24 +6,27 @@ const QuizSection = ({ timeRemaining, lives, currentQuestions, checkAnswer }) =>
   }
 
   return (
-    <div id="quiz-section">
-      <h1>{currentQuestions.prompt}</h1>
-      {currentQuestions.answers.map((answer, index) => {
-        const isCorrect = currentQuestions.correctIndex === index
-        return (
-          <button
-            key={index}
-            onClick={() => checkAnswer(isCorrect)}>
-            {answer}
-          </button>
-        )
-      })}
-      <br />
-      <div id='progress-bar'>
-        <div id='progress-inner' style={{ width: `${timeRemaining * 10}%` }}></div>
+    <div id="quiz-container">
+      <div id="quiz-section">
+      <div id="quiz-wing"> {hearts}</div>
+        <h1>{currentQuestions.prompt}</h1>
+        <div className="quiz-buttons">
+          {currentQuestions.answers.map((answer, index) => {
+            const isCorrect = currentQuestions.correctIndex === index
+            return (
+              <button
+                key={index}
+                onClick={() => checkAnswer(isCorrect)}>
+                {answer}
+              </button>
+            )
+          })}
+        </div>
+        <br />
+        <div id='progress-bar'>
+          <div id='progress-inner' style={{ width: `${timeRemaining * 10}%` }}></div>
+        </div>
       </div>
-      <br />
-      <span> Lives remaining: {hearts} </span>
     </div>
   )
 }
