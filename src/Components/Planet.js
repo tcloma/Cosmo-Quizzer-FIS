@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import QuizSection from "./QuizSection"
 import questions from "../questions";
 
 const Planet = ({ planetId }) => {
@@ -14,7 +15,6 @@ const Planet = ({ planetId }) => {
   const currentQuestions = questions.find((question) => question.id === questionId)
 
   const handleTimerStart = () => {
-    console.log(timerStart)
     setTimerStart(true)
   }
 
@@ -25,13 +25,13 @@ const Planet = ({ planetId }) => {
       setQuestionId(questionId => questionId + 1)
       return;
     }
-    
+
     const timerId = setTimeout(() => {
-      if (timerStart === true && lives > 0){
+      if (timerStart === true && lives > 0) {
         setTimeRemaining((timeRemaining) => timeRemaining - 1);
       }
     }, 1000);
-    
+
     if (lives === 0) {
       alert('dead')
     }
@@ -41,7 +41,7 @@ const Planet = ({ planetId }) => {
     };
   }, [timeRemaining, timerStart, lives])
 
-  const handleClick = (correct) => {
+  const checkAnswer = (correct) => {
     console.log(correct)
     if (correct === true) {
       setQuestionId(questionId => questionId + 1)
@@ -51,11 +51,6 @@ const Planet = ({ planetId }) => {
       setTimeRemaining(10)
       setLives(lives => lives - 1)
     }
-  }
-
-  let hearts = ''
-  for (let i = 0; i < lives; i++) {
-    hearts += '❤️'
   }
 
   return (
@@ -69,31 +64,18 @@ const Planet = ({ planetId }) => {
         <img
           className='enemy'
           alt="enemy"
-          src="https://app.pixelencounter.com/api/basic/monsters/random/png?size=100" />
+          src={`https://app.pixelencounter.com/api/basic/monsters/random/png?size=100&${planetId}`}
+        />
       </div>
 
-      {!timerStart ? <button onClick={handleTimerStart}> Start quiz </button> : 
       
-      <div id='quiz-section'>
-        <h1>{currentQuestions.prompt}</h1>
-        {currentQuestions.answers.map((answer, index) => {
-          const isCorrect = currentQuestions.correctIndex === index
-          return (
-            <button
-              key={index}
-              onClick={() => handleClick(isCorrect)}>
-              {answer}
-            </button>
-          )
-        })}
-        <br />
-        <div id='progress-bar'>
-          <div id='progress-inner' style={{width: `${timeRemaining*10}%`}}></div>
-        </div>
-        <br />
-        <span> Lives remaining: {hearts} </span>
-      </div>
-      }
+        {!timerStart ? <button onClick={handleTimerStart}> Start quiz </button> :
+          <QuizSection
+            lives={lives}
+            timeRemaining={timeRemaining}
+            checkAnswer={checkAnswer}
+            currentQuestions={currentQuestions}
+          />}
     </div>
   )
 }

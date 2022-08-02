@@ -7,6 +7,7 @@ import {
 import StarMap from './StarMap'
 import Planet from './Planet'
 import NavBar from './NavBar';
+import StatScreen from "./StatScreen";
 
 const GameContainer = () => {
 
@@ -20,6 +21,7 @@ const GameContainer = () => {
         <Routes>
           <Route path="/" element={<StarMap setPlanetId={setPlanetId}/>} />
           <Route path="/Planet" element={<Planet planetId={planetId}/>} />
+          <Route path='/StatScreen' element={<StatScreen />} />
         </Routes>
       </Router>
       

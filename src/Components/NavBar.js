@@ -5,14 +5,11 @@ const NavBar = () => {
 
   return (
     <nav>
-      <ul style={{listStyle:"none"}}>
-        <li>
-          <Link to="/">Star Map</Link>
-        </li>
-        <li>
-          <Link to="/Planet">Planet</Link>
-        </li>
-      </ul>
+      <div style={{display:'flex', justifyContent:'center', gap:'10px'}}>
+        <Link to="/">Star Map</Link>
+        <Link to="/Planet">Planet</Link>
+        <Link to='/StatScreen'> Stat Screen </Link>
+      </div>
     </nav>
   )
 }
