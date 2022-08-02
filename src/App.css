@@ -191,6 +191,8 @@ button{
   height: 50%;
 }
 
+/* Animations */
+
 @keyframes floating {
   0% {
     transform: translateY(0%);
