@@ -12,16 +12,16 @@ import StatScreen from "./StatScreen";
 const GameContainer = () => {
 
   const [planetId, setPlanetId] = useState(1)
+  const [playerId, setPlayerId] = useState(1)
 
   return(
-    <div>
-      <h1> Game Container </h1>
+    <div style={{marginTop: '20px'}}>
       <Router>
         <NavBar />
         <Routes>
           <Route path="/" element={<StarMap setPlanetId={setPlanetId}/>} />
-          <Route path="/Planet" element={<Planet planetId={planetId}/>} />
-          <Route path='/StatScreen' element={<StatScreen />} />
+          <Route path="/Planet" element={<Planet planetId={planetId} playerId={playerId}/>} />
+          <Route path='/StatScreen' element={<StatScreen playerId={playerId} setPlayerId={setPlayerId}/>} />
         </Routes>
       </Router>
       
