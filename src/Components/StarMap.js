@@ -13,8 +13,8 @@ const StarMap = ({ROWS, COLS, squares, setPlanetId, reveal}) => {
       <img key="5" src={getUrl(5)} alt="planet 5" onClick={() => { setPlanetId(5) }} /> */}
       <div style={{
         display: "grid",
-        gridTemplateRows: `repeat(${ROWS}, 100px)`,
-        gridTemplateColumns: `repeat(${COLS}, 100px)`,
+        gridTemplateRows: `repeat(${ROWS}, 13vh)`,
+        gridTemplateColumns: `repeat(${COLS}, 13vh)`,
         justifyContent: "center",
       }}>
         {squares.map((element, row) => {
@@ -26,8 +26,8 @@ const StarMap = ({ROWS, COLS, squares, setPlanetId, reveal}) => {
                 reveal(row, col, el.type === "planet")
               }
             }} style={{
-              width: "99px",
-              height: "99px",
+              // width: "10vh",
+              // height: "10vh",
               border: "1px solid",
               display: "flex",
               placeContent: "center",
