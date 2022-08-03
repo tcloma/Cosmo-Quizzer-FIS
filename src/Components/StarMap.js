@@ -1,7 +1,14 @@
+import { useState } from "react"
 
-
+import {Navigate} from "react-router-dom"
 
 const StarMap = ({ROWS, COLS, squares, setPlanetId, reveal}) => {
+
+  const [toPlanet, setToPlanet] = useState(null)
+
+  if (toPlanet) {
+    return (<Navigate to={`/Planet`} replace={true} />)
+  }
 
   return (
     <div>
@@ -25,6 +32,7 @@ const StarMap = ({ROWS, COLS, squares, setPlanetId, reveal}) => {
               if (el.hidden) {
                 reveal(row, col, el.type === "planet")
               }
+              if (el.type === "planet") setToPlanet(el.subtype);
             }} style={{
               // width: "10vh",
               // height: "10vh",
