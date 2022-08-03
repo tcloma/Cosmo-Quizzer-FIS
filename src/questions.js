@@ -39,6 +39,76 @@ const questions = [
     answers: ["voodoo", "conditional", "reactive", "controlled"],
     correctIndex: 1,
   },
+  {
+    id: 7,
+    prompt:
+      "Example prompt",
+      answers: ["a","b","c","d"],
+      correctIndex: 1
+  },
+  {
+    id: 8,
+    prompt:
+      "Example prompt",
+      answers: ["a","b","c","d"],
+      correctIndex: 1
+  },
+  {
+    id: 9,
+    prompt:
+      "Example prompt",
+      answers: ["a","b","c","d"],
+      correctIndex: 1
+  },
+  {
+    id: 10,
+    prompt:
+      "Example prompt",
+      answers: ["a","b","c","d"],
+      correctIndex: 1
+  },
+  {
+    id: 11,
+    prompt:
+      "Example prompt",
+      answers: ["a","b","c","d"],
+      correctIndex: 1
+  },
+  {
+    id: 12,
+    prompt:
+      "Example prompt",
+      answers: ["a","b","c","d"],
+      correctIndex: 1
+  },
+  {
+    id: 13,
+    prompt:
+      "Example prompt",
+      answers: ["a","b","c","d"],
+      correctIndex: 1
+  },
+  {
+    id: 14,
+    prompt:
+      "Example prompt",
+      answers: ["a","b","c","d"],
+      correctIndex: 1
+  },
+  {
+    id: 15,
+    prompt:
+      "Example prompt",
+      answers: ["a","b","c","d"],
+      correctIndex: 1
+  },
+  {
+    id: 16,
+    prompt:
+      "Example prompt",
+      answers: ["a","b","c","d"],
+      correctIndex: 1
+  },
 ];
 
 export default questions;

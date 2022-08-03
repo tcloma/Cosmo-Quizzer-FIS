@@ -21,6 +21,7 @@ const GameContainer = () => {
 
   const [planetId, setPlanetId] = useState(1)
   const [playerId, setPlayerId] = useState(1)
+  const [sliderData, setSliderData] = useState([])
 
   useEffect(() => {
     let newSquares = [...Array(ROWS)].map(() => Array(COLS).fill(""))
@@ -38,8 +39,8 @@ const GameContainer = () => {
         <NavBar />
         <Routes>
           <Route path="/" element={<StarMap squares={squares} ROWS={ROWS} COLS={COLS} setPlanetId={setPlanetId} />} />
-          <Route path="/Planet" element={<Planet planetId={planetId} playerId={playerId} />} />
-          <Route path='/StatScreen' element={<StatScreen playerId={playerId} setPlayerId={setPlayerId} />} />
+          <Route path="/Planet" element={<Planet planetId={planetId} playerId={playerId} sliderData={sliderData}/>} />
+          <Route path='/StatScreen' element={<StatScreen playerId={playerId} setPlayerId={setPlayerId} setSliderData={setSliderData} sliderData={sliderData}/>} />
         </Routes>
       </Router>
     </div>

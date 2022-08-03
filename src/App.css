@@ -9,7 +9,11 @@ body {
   font-family: 'Roboto Mono', monospace;
 }
 
-#ui{
+button{
+  font-family: 'Roboto Mono', monospace;
+}
+
+#ui {
   position: absolute;
   display: flex;
   gap: 10px;
@@ -17,12 +21,123 @@ body {
   left: 10px;
 }
 
-#stat-screen{
+/* Planet Component */
+
+#closeup-planet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-height: 100vh;
+}
+
+.player,
+.enemy {
+  position: absolute;
+  height: 10%;
+  filter: drop-shadow(-1px 2px 2px #222);
+}
+
+.planet {
+  filter: drop-shadow(-10px 10px 5px black);
+  width: 100%;
+  height: 0%;
+  object-fit: contain;
+}
+
+.player {
+  top: 40%;
+  left: 40%
+}
+
+.enemy {
+  top: 50%;
+  left: 55%;
+}
+
+/* Quiz Component */
+
+#quiz-container {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  bottom: 1%;
+}
+
+#quiz-wing {
+  z-index: 2;
+  position: absolute;
+  bottom: 7.2em;
+  left: 8%;
+  font-size: 2em;
+  text-shadow: -1px 1px 1px white;
+}
+
+#quiz-section {
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+  background-color: #282a3a;
+  color: white;
+  z-index: 1;
+  width: 90%;
+  height: 14em;
+  border-radius: 50px;
+  padding: 10px 20px 10px 20px;
+  box-shadow: 0px 0px 100px black;
+  text-shadow: -2px 1px 2px black;
+  border: 2px grey solid;
+}
+
+#quiz-section h1 {
+  font-size: 1.5em;
+}
+
+.quiz-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.quiz-buttons button {
+  font-size: 1em;
+  padding: 1em;
+  min-width: 20%;
+  background-color: transparent;
+  border: 1px white solid;
+  color: white;
+}
+
+.quiz-buttons button:hover {
+  box-shadow: 0px 0px 20px black;
+
+}
+
+#progress-bar {
+  width: 100%;
+  height: 2em;
+  background-color: #8d8d92;
+  position: relative;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+#progress-inner {
+  background: white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+/* StatScreen Component */
+
+#stat-screen {
   display: flex;
   justify-content: top;
   flex-direction: column;
   margin-top: 10px;
-  background-color: #3c3b47;
+  background-color: #282a3a;
   /* border: 2px white solid; */
   box-shadow: 0px 0px 20px black;
   border-radius: 5px;
@@ -30,69 +145,14 @@ body {
   width: 40%;
 }
 
-#closeup-planet{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.player, .enemy {
-  position: absolute;
-  height: 10%;
-}
-
-.player{
-  top: 40%;
-  left: 40%
-}
-
-.enemy{
-  top: 50%;
-  left: 55%;
-}
-
-#quiz-section{
-  position: absolute;
-  bottom: 0;
-  background-color: white;
-  color: black;
-  z-index: 2;
-  width: 90%;
-  height: 30vh;
-  border-radius: 50px;
-  border: 5px black solid;
-}
-
-#quiz-section button {
-  padding: 20px 20px 20px 20px;
-}
-
-#progress-bar {
-  width: 100%;
-  height: 50px;
-  background-color: #8d8d92;
-  position: relative;
-  margin-top: 10px;
-  /* border-radius: 10px; */
-}
-
-#progress-inner {
-  background: #282a3a;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  /* border-radius: 10px; */
-}
-
-.top-section{
+.top-section {
   display: flex;
   border: 1px white solid;
   width: 100%;
   height: 50%;
 }
 
-.player-img{
+.player-img {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,14 +160,49 @@ body {
   width: 50%;
 }
 
-.stats{
+.player-closeup {
+  filter: drop-shadow(-1px 2px 2px black);
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
   border: 1px white solid;
   width: 50%;
 }
 
-.bottom-section{
+.stats button{
+  padding: 1em 4em 1em 4em;
+  background-color: transparent;
+  border: 3px white solid;
+  border-radius: 5px;
+  color: white;
+}
+
+.bottom-section {
   display: flex;
   padding-left: 10px;
   border: 1px white solid;
   height: 50%;
+}
+
+/* Animations */
+
+@keyframes floating {
+  0% {
+    transform: translateY(0%);
+  }
+
+  50% {
+    transform: translateY(8%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
 }
