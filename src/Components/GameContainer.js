@@ -18,18 +18,29 @@ const GameContainer = () => {
 
 
   const [squares, setSquares] = useState([])
+  const [clearance, setClearance] = useState(1)
 
   const [lives, setLives] = useState(5)
   const [planetId, setPlanetId] = useState(1)
   const [playerId, setPlayerId] = useState(1)
   const [sliderData, setSliderData] = useState([])
 
+  const reveal = (row, col, foundPlanet) => {
+    if(row > clearance || col > clearance) return false;
+    //squares[row][col].hidden = false;
+    let newSquares = [...squares];
+    newSquares[row][col].hidden = false;
+    setSquares(newSquares)
+    if (foundPlanet) setClearance(clearance + 1)
+  }
+
   useEffect(() => {
-    let newSquares = [...Array(ROWS)].map(() => Array(COLS).fill(""))
-    newSquares[0][0] = "Earth.jpg"; //Replace this with out starter planet
+    let newSquares = [...Array(ROWS)].map(() => [...Array(COLS)].map(() => {return {hidden: true, img: "", type: "empty", subtype: ""}}))
+    newSquares[0][0] = {hidden: false, img: "Earth.jpg", type: "planet", subtype: "home"}; //Replace this with our starter planet
     for (let distance = 1; distance < ROWS; distance++) {
       const randomPos = Math.floor(Math.random() * (distance + distance + 1)) - distance
-      randomPos > 0 ? newSquares[distance - randomPos][distance] = getUrl(distance) : newSquares[distance][distance + randomPos] = getUrl(distance);
+      const nextPlanet = { hidden: true, img: getUrl(distance), type: "planet", subtype: `${distance}` }
+      randomPos > 0 ? newSquares[distance - randomPos][distance] = nextPlanet : newSquares[distance][distance + randomPos] = nextPlanet;
     }
     setSquares(newSquares)
   }, [])
@@ -45,6 +56,8 @@ const GameContainer = () => {
               ROWS={ROWS}
               COLS={COLS}
               setPlanetId={setPlanetId}
+              reveal={reveal}
+              clearance={clearance}
             />} />
           <Route path="/Planet" element={
             <Planet

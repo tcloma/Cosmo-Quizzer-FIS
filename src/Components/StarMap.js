@@ -1,7 +1,7 @@
 
 
 
-const StarMap = ({ROWS, COLS, squares, setPlanetId}) => {
+const StarMap = ({ROWS, COLS, squares, setPlanetId, reveal}) => {
 
   return (
     <div>
@@ -19,13 +19,19 @@ const StarMap = ({ROWS, COLS, squares, setPlanetId}) => {
       }}>
         {squares.map((element, row) => {
           return element.map((el, col) => {
-            return (<div onClick={() => el && setPlanetId(el.slice(-1))} style={{
+            return (<div key={`${row},${col}`}
+            onClick={() => {
+              if (el.type === "planet" && el.subtype !== "home") setPlanetId(el.img.slice(-1));
+              if (el.hidden) {
+                reveal(row, col, el.type === "planet")
+              }
+            }} style={{
               width: "99px",
               height: "99px",
               border: "1px solid",
               display: "flex",
               placeContent: "center",
-              backgroundImage: `${el ? `url(${el})` :"url(space.jpeg)"}`,
+              backgroundImage: `${!el.hidden ? `url(${el.img})` :"url(space.jpeg)"}`,
               backgroundSize: "100% 100%",
             }}>
               <p style={{ fontSize: "0.2em" }}>{`${row}, ${col}`}</p>
