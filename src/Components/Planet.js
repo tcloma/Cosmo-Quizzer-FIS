@@ -2,11 +2,10 @@ import { useState, useEffect } from "react";
 import QuizSection from "./QuizSection"
 import questions from "../questions";
 
-const Planet = ({ planetId, playerId, sliderData }) => {
+const Planet = ({ planetId, playerId, sliderData, lives, setLives }) => {
 
   const {sliderA, sliderB, sliderC} = sliderData;
 
-  const [lives, setLives] = useState(5)
   const [questionId, setQuestionId] = useState(1)
   const [timeRemaining, setTimeRemaining] = useState(10)
   const [timerStart, setTimerStart] = useState(false)

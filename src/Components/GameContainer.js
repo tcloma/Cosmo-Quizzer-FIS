@@ -19,6 +19,7 @@ const GameContainer = () => {
 
   const [squares, setSquares] = useState([])
 
+  const [lives, setLives] = useState(5)
   const [planetId, setPlanetId] = useState(1)
   const [playerId, setPlayerId] = useState(1)
   const [sliderData, setSliderData] = useState([])
@@ -36,9 +37,29 @@ const GameContainer = () => {
       <Router>
         <NavBar />
         <Routes>
-          <Route path="/" element={<StarMap squares={squares} ROWS={ROWS} COLS={COLS} setPlanetId={setPlanetId} />} />
-          <Route path="/Planet" element={<Planet planetId={planetId} playerId={playerId} sliderData={sliderData}/>} />
-          <Route path='/StatScreen' element={<StatScreen playerId={playerId} setPlayerId={setPlayerId} setSliderData={setSliderData} sliderData={sliderData}/>} />
+          <Route path="/" element={
+            <StarMap
+              squares={squares}
+              ROWS={ROWS}
+              COLS={COLS}
+              setPlanetId={setPlanetId}
+            />} />
+          <Route path="/Planet" element={
+            <Planet
+              planetId={planetId}
+              playerId={playerId}
+              sliderData={sliderData}
+              lives={lives}
+              setLives={setLives}
+            />} />
+          <Route path='/StatScreen' element={
+            <StatScreen playerId={playerId}
+              setPlayerId={setPlayerId}
+              setSliderData={setSliderData}
+              sliderData={sliderData}
+              lives={lives}
+              setLives={setLives}
+            />} />
         </Routes>
       </Router>
     </div>

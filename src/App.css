@@ -9,7 +9,7 @@ body {
   font-family: 'Roboto Mono', monospace;
 }
 
-button{
+button {
   font-family: 'Roboto Mono', monospace;
 }
 
@@ -137,17 +137,18 @@ button{
   justify-content: top;
   flex-direction: column;
   margin-top: 10px;
-  background-color: #282a3a;
-  /* border: 2px white solid; */
-  box-shadow: 0px 0px 20px black;
-  border-radius: 5px;
-  height: 90vh;
-  width: 40%;
+  background-color: #1c181f;
+  border-radius: 2em;
+  height: 100%;
+  width: 60%;
+  padding: 2em 2em 2em 2em;
+  gap: 1.5em;
 }
 
 .top-section {
   display: flex;
-  border: 1px white solid;
+  justify-content: space-between;
+  /* border: 1px white solid; */
   width: 100%;
   height: 50%;
 }
@@ -156,8 +157,11 @@ button{
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px white solid;
-  width: 50%;
+  /* border: 1px white solid; */
+  border-radius: 2em;
+  width: 68%;
+  background-color: #342b3b;
+  box-shadow: -2px 1px 5px #21242b;
 }
 
 .player-closeup {
@@ -167,16 +171,24 @@ button{
   animation-iteration-count: infinite;
 }
 
+.player-closeup:hover {
+  animation-name: shake;
+  animation-duration: 0.5s;
+}
+
 .stats {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 5px;
-  border: 1px white solid;
-  width: 50%;
+  /* border: 1px white solid; */
+  border-radius: 2em;
+  width: 30%;
+  background-color: #342b3b;
+  box-shadow: -2px 1px 5px #21242b;
 }
 
-.stats button{
+.stats button {
   padding: 1em 4em 1em 4em;
   background-color: transparent;
   border: 3px white solid;
@@ -185,10 +197,56 @@ button{
 }
 
 .bottom-section {
+  padding: 0em 1.5em 1em 1.5em;
   display: flex;
-  padding-left: 10px;
-  border: 1px white solid;
+  flex-direction: column;
+  align-items: flex-start;
+  /* border: 1px white solid; */
+  border-radius: 2em;
   height: 50%;
+  background-color: #342b3b;
+  box-shadow: -2px 1px 5px #21242b;
+}
+
+.planet-gallery {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: fit-content;
+}
+
+.gallery-item {
+  position: relative;
+  width: 15%;
+  /* border: 1px solid white; */
+  height: fit-content;
+  padding-top: .5em;
+}
+
+.gallery-planet {
+  width: 100%;
+}
+
+.gallery-inhabitant {
+  position: absolute;
+  width: 20%;
+  left: 4.5em
+}
+
+.stat-buttons{
+  /* margin: 1em 1em 1em 0em; */
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.stat-buttons button {
+  width: 49%;
+  padding: 1em 4em 1em 4em;
+  background-color: transparent;
+  border: 3px white solid;
+  border-radius: 1em;
+  color: white;
 }
 
 /* Animations */
@@ -204,5 +262,51 @@ button{
 
   100% {
     transform: translateY(0%);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
   }
 }
