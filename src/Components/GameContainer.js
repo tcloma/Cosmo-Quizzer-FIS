@@ -26,8 +26,10 @@ const GameContainer = () => {
 
   useEffect(() => {
     let newSquares = [...Array(ROWS)].map(() => Array(COLS).fill(""))
-    for (let i = 0; i < ROWS; i++) {
-      newSquares[i][Math.floor(Math.random() * COLS)] = getUrl(i + 1)
+    newSquares[0][0] = "Earth.jpg"; //Replace this with out starter planet
+    for (let distance = 1; distance < ROWS; distance++) {
+      const randomPos = Math.floor(Math.random() * (distance + distance + 1)) - distance
+      randomPos > 0 ? newSquares[distance - randomPos][distance] = getUrl(distance) : newSquares[distance][distance + randomPos] = getUrl(distance);
     }
     setSquares(newSquares)
   }, [])
