@@ -1,8 +1,8 @@
-const PlanetGallery = ({getUrl}) => {
+const PlanetGallery = ({ getUrl, showQuestions, setShowQuestions }) => {
 
-  const idArr = [1, 2, 3, 4, 5]
-  
-  return(
+  const idArr = [2, 3, 4, 5, 6]
+
+  return (
     <div className="bottom-section">
       <div className="planet-gallery">
         {idArr.map((id, index) => {
@@ -12,7 +12,7 @@ const PlanetGallery = ({getUrl}) => {
                 className="gallery-planet"
                 alt='planet'
                 key={index}
-                src={getUrl(index)}
+                src={getUrl(index + 1)}
               />
               <img
                 className="gallery-inhabitant"
@@ -25,7 +25,7 @@ const PlanetGallery = ({getUrl}) => {
         })}
       </div>
       <div className="stat-buttons">
-        <button> Question Log </button>
+        <button onClick={() => setShowQuestions(!showQuestions)}> Question Log </button>
         <button> Other Button </button>
       </div>
     </div>

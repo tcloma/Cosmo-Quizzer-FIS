@@ -5,10 +5,11 @@ const QuestionLogCard = ({ questionObject }) => {
   const[isClicked, setIsClicked] = useState(false)
 
   const {prompt, answers, correctIndex} = questionObject
+  const correctAnswer = answers[correctIndex]
 
   return (
-    <div className="log-card" onClick={() => setIsClicked(!isClicked)}>
-      {isClicked ? {answers} :<h3> {prompt} </h3>}
+    <div className={isClicked ? 'log-card-flipped' : 'log-card'} onClick={() => setIsClicked(!isClicked)}>
+      {isClicked ? <h3>{correctAnswer}</h3> :<h3> {prompt} </h3>}
     </div>
   )
 }

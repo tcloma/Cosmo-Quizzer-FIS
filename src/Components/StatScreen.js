@@ -2,10 +2,13 @@ import PlanetGallery from "./SubComponents/PlanetGallery";
 import CharacterGenerator from "./SubComponents/CharacterGenerator";
 import QuestionLogCard from "./SubComponents/QuestionLogCard";
 import questions from '../questions'
+import { useState } from "react";
 
 const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, lives, getUrl }) => {
 
   const { sliderA, sliderB, sliderC } = sliderData;
+
+  const [showQuestions, setShowQuestions] = useState(false)
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -37,12 +40,18 @@ const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, lives, g
             <span> ✅0 ❤️{lives} </span>
           </div>
         </div>
-        <PlanetGallery getUrl={getUrl} />
-        <div className="log-container">
-          {questions.map((question) => {
-            return <QuestionLogCard questionObject={question} />
-          })}
-        </div>
+        <PlanetGallery 
+        getUrl={getUrl} 
+        showQuestions={showQuestions}
+        setShowQuestions={setShowQuestions} 
+        />
+        {showQuestions ?
+          <div className="log-container">
+            {questions.map((question) => {
+              return <QuestionLogCard questionObject={question} />
+            })}
+          </div>
+          : null}
       </div>
     </div>
   )
