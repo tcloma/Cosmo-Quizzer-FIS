@@ -10,7 +10,20 @@ body {
 }
 
 button {
+  background-color: transparent;
   font-family: 'Roboto Mono', monospace;
+  font-size: 1em;
+  color: white;
+  border: 3px white solid;
+  border-radius: 1em;
+  padding: 1em;
+  cursor: pointer;
+}
+
+button:hover {
+  transition-duration: 0.1s;
+  box-shadow: 0px 0px 10px black;
+  /* transform: scale(1.01); */
 }
 
 #ui {
@@ -28,7 +41,7 @@ button {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-height: 100vh;
+  max-height: 100%;
 }
 
 .player,
@@ -91,26 +104,16 @@ button {
 }
 
 #quiz-section h1 {
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 .quiz-buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .quiz-buttons button {
-  font-size: 1em;
-  padding: 1em;
-  min-width: 20%;
-  background-color: transparent;
-  border: 1px white solid;
-  color: white;
-}
-
-.quiz-buttons button:hover {
-  box-shadow: 0px 0px 20px black;
-
+  min-width: 22%;
 }
 
 #progress-bar {
@@ -140,35 +143,49 @@ button {
   background-color: #1c181f;
   border-radius: 2em;
   height: 100%;
-  width: 60%;
+  width: 85%;
   padding: 2em 2em 2em 2em;
-  gap: 1.5em;
+  /* gap: -0em; */
 }
 
 .top-section {
   display: flex;
   justify-content: space-between;
-  /* border: 1px white solid; */
   width: 100%;
   height: 50%;
 }
 
+.top-section>div,
+.bottom-section {
+  background-color: #342b3b;
+  /* box-shadow: -2px 1px 5px #21242b; */
+  border-radius: 2em;
+}
+
 .player-img {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px white solid; */
-  border-radius: 2em;
   width: 68%;
-  background-color: #342b3b;
-  box-shadow: -2px 1px 5px #21242b;
+}
+
+.player-bg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  border-radius: 2em;
+  filter: blur(3px)
 }
 
 .player-closeup {
-  filter: drop-shadow(-1px 2px 2px black);
+  filter: drop-shadow(-1px 2px 7px black);
   animation-name: floating;
   animation-duration: 3s;
   animation-iteration-count: infinite;
+  z-index: 1;
+
 }
 
 .player-closeup:hover {
@@ -181,19 +198,51 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 5px;
-  /* border: 1px white solid; */
-  border-radius: 2em;
   width: 30%;
-  background-color: #342b3b;
-  box-shadow: -2px 1px 5px #21242b;
+  padding-bottom: 1em;
+}
+
+.stats h1{
+  font-size: 1.5em;
+  max-width: 100%;
+}
+
+.stats input {
+  -webkit-appearance: none;
+  width: 90%;
+  height: 25px;
+  background: #c6bbb9;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  border-radius: .5em;
+}
+
+.stats input:hover {
+  opacity: 1;
+}
+
+.stats input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 50px;
+  height: 25px;
+  background: #dc72d0;
+  cursor: pointer;
+  border-radius: .5em;
 }
 
 .stats button {
-  padding: 1em 4em 1em 4em;
-  background-color: transparent;
-  border: 3px white solid;
-  border-radius: 5px;
-  color: white;
+  width: 80%;
+}
+
+.mid-text {
+  width: 95%;
+  font-size: 1.1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .bottom-section {
@@ -201,11 +250,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* border: 1px white solid; */
-  border-radius: 2em;
   height: 50%;
-  background-color: #342b3b;
-  box-shadow: -2px 1px 5px #21242b;
 }
 
 .planet-gallery {
@@ -218,10 +263,15 @@ button {
 .gallery-item {
   position: relative;
   width: 15%;
-  /* border: 1px solid white; */
   height: fit-content;
   padding-top: .5em;
 }
+
+/* .gallery-item:hover {
+  transition-duration: .2s;
+  filter: drop-shadow(-3px 3px 5px black);
+  transform: scale(1.01);
+} */
 
 .gallery-planet {
   width: 100%;
@@ -233,8 +283,7 @@ button {
   left: 4.5em
 }
 
-.stat-buttons{
-  /* margin: 1em 1em 1em 0em; */
+.stat-buttons {
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -242,11 +291,6 @@ button {
 
 .stat-buttons button {
   width: 49%;
-  padding: 1em 4em 1em 4em;
-  background-color: transparent;
-  border: 3px white solid;
-  border-radius: 1em;
-  color: white;
 }
 
 /* Animations */

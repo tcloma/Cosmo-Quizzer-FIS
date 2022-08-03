@@ -60,7 +60,6 @@ const GameContainer = () => {
               setSliderData={setSliderData}
               sliderData={sliderData}
               lives={lives}
-              setLives={setLives}
             />} />
         </Routes>
       </Router>

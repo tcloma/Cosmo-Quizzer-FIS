@@ -62,4 +62,5 @@
 	- Lives remaining
   - Items obtaineds
 	- Completion% progress bar(?)
-	- Question log(?)
+	
+  - Question log(?)
