@@ -102,13 +102,6 @@ const questions = [
       answers: ["a","b","c","d"],
       correctIndex: 1
   },
-  {
-    id: 16,
-    prompt:
-      "Example prompt",
-      answers: ["a","b","c","d"],
-      correctIndex: 1
-  },
 ];
 
 export default questions;

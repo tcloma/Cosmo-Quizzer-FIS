@@ -12,18 +12,25 @@ import StatScreen from "./StatScreen";
 const GameContainer = () => {
 
   const getUrl = (id) => `https://app.pixelencounter.com/api/basic/planets?frame=13&width=240&height=240&disableStars=true&disableBackground=true&id=${id}`
-
+  
   const ROWS = 6
   const COLS = 6
-
-
+  
   const [squares, setSquares] = useState([])
   const [clearance, setClearance] = useState(1)
-
+  
   const [lives, setLives] = useState(5)
   const [planetId, setPlanetId] = useState(1)
+
   const [playerId, setPlayerId] = useState(1)
-  const [sliderData, setSliderData] = useState([])
+  const [sliderData, setSliderData] = useState({
+    'sliderA': 100,
+    'sliderB': 50,
+    'sliderC': 25
+  })
+
+  const {sliderA, sliderB, sliderC} = sliderData;
+  const playerUrl = `https://app.pixelencounter.com/api/v2/basic/svgmonsters/image/png?size=200&saturation=${sliderA / 100}&colored=true&colorVariations=${sliderB / 100}&edgeBrightness=${sliderC / 100}&id=${playerId}`
 
   const reveal = (row, col, foundPlanet) => {
     if(row > clearance || col > clearance) return false;
@@ -63,7 +70,7 @@ const GameContainer = () => {
             <Planet
               planetId={planetId}
               playerId={playerId}
-              sliderData={sliderData}
+              playerUrl={playerUrl}
               lives={lives}
               setLives={setLives}
               getUrl={getUrl}
@@ -72,7 +79,7 @@ const GameContainer = () => {
             <StatScreen playerId={playerId}
               setPlayerId={setPlayerId}
               setSliderData={setSliderData}
-              sliderData={sliderData}
+              playerUrl={playerUrl}
               lives={lives}
               getUrl={getUrl}
             />} />

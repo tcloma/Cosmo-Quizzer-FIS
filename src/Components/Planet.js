@@ -2,10 +2,7 @@ import { useState, useEffect } from "react";
 import QuizSection from "./QuizSection"
 import questions from "../questions";
 
-const Planet = ({ planetId, playerId, sliderData, lives, setLives, getUrl }) => {
-
-  // Destructured props
-  const {sliderA, sliderB, sliderC} = sliderData;
+const Planet = ({ planetId, playerId, playerUrl, lives, setLives, getUrl }) => {
 
   // States
   const [questionId, setQuestionId] = useState(1)
@@ -61,7 +58,7 @@ const Planet = ({ planetId, playerId, sliderData, lives, setLives, getUrl }) => 
         <img
           className='player'
           alt='player'
-          src={`https://app.pixelencounter.com/api/v2/basic/svgmonsters/image/png?size=200&saturation=${sliderA/100}&colored=true&colorVariations=${sliderB/100}&edgeBrightness=${sliderC/100}&id=${playerId}`}
+          src={playerUrl}
           />
         <img
           className='enemy'
