@@ -1,12 +1,10 @@
+import { useState } from "react";
+import questions from '../questions'
 import PlanetGallery from "./SubComponents/PlanetGallery";
 import CharacterGenerator from "./SubComponents/CharacterGenerator";
 import QuestionLogCard from "./SubComponents/QuestionLogCard";
-import questions from '../questions'
-import { useState } from "react";
 
-const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, lives, getUrl }) => {
-
-  const { sliderA, sliderB, sliderC } = sliderData;
+const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, playerUrl, getUrl, lives }) => {
 
   const [showQuestions, setShowQuestions] = useState(false)
 
@@ -18,7 +16,7 @@ const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, lives, g
             <img
               className="player-closeup"
               alt='player'
-              src={`https://app.pixelencounter.com/api/v2/basic/svgmonsters/image/png?size=200&saturation=${sliderA / 100}&colored=true&colorVariations=${sliderB / 100}&edgeBrightness=${sliderC / 100}&id=${playerId}`}
+              src={playerUrl}
             />
             <img
               className="player-bg"
