@@ -293,6 +293,22 @@ button:hover {
   width: 49%;
 }
 
+.log-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap:30px
+}
+
+.log-card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px white solid;
+  width:  30%;
+  min-height: 10em;
+}
+
 /* Animations */
 
 @keyframes floating {

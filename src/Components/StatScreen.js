@@ -1,9 +1,11 @@
 import PlanetGallery from "./SubComponents/PlanetGallery";
 import CharacterGenerator from "./SubComponents/CharacterGenerator";
+import QuestionLogCard from "./SubComponents/QuestionLogCard";
+import questions from '../questions'
 
 const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, lives, getUrl }) => {
 
-  const {sliderA, sliderB, sliderC} = sliderData;
+  const { sliderA, sliderB, sliderC } = sliderData;
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -21,11 +23,11 @@ const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, lives, g
               src='space.jpeg'
             />
           </div>
-          <CharacterGenerator 
-          setSliderData={setSliderData} 
-          sliderData={sliderData}
-          setPlayerId={setPlayerId}
-          playerId={playerId}
+          <CharacterGenerator
+            setSliderData={setSliderData}
+            sliderData={sliderData}
+            setPlayerId={setPlayerId}
+            playerId={playerId}
           />
         </div>
 
@@ -36,6 +38,11 @@ const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, lives, g
           </div>
         </div>
         <PlanetGallery getUrl={getUrl} />
+        <div className="log-container">
+          {questions.map((question) => {
+            return <QuestionLogCard questionObject={question} />
+          })}
+        </div>
       </div>
     </div>
   )
