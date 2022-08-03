@@ -2,7 +2,7 @@ import { useState } from "react"
 
 import {Navigate} from "react-router-dom"
 
-const StarMap = ({ROWS, COLS, squares, setPlanetId, reveal}) => {
+const StarMap = ({ROWS, COLS, squares, setPlanetId, move, playerUrl, position}) => {
 
   const [toPlanet, setToPlanet] = useState(null)
 
@@ -28,11 +28,10 @@ const StarMap = ({ROWS, COLS, squares, setPlanetId, reveal}) => {
           return element.map((el, col) => {
             return (<div key={`${row},${col}`}
             onClick={() => {
-              if (el.type === "planet" && el.subtype !== "home") setPlanetId(el.img.slice(-1));
-              if (el.hidden) {
-                reveal(row, col, el.type === "planet")
+              if (move(row, col, el)) {
+                if (el.type === "planet" && el.subtype !== "home") setPlanetId(el.img.slice(-1));
+                if (el.type === "planet" && el.subtype !== "home") setToPlanet(el.subtype);
               }
-              if (el.type === "planet") setToPlanet(el.subtype);
             }} style={{
               // width: "10vh",
               // height: "10vh",
@@ -42,7 +41,9 @@ const StarMap = ({ROWS, COLS, squares, setPlanetId, reveal}) => {
               backgroundImage: `${!el.hidden ? `url(${el.img})` :"url(space.jpeg)"}`,
               backgroundSize: "100% 100%",
             }}>
-              <p style={{ fontSize: "0.2em" }}>{`${row}, ${col}`}</p>
+              {(position[0] === row && position[1] === col) 
+                ? <img src={playerUrl} alt="player" style={{width:"50%"}}/>
+                : <p style={{ fontSize: "0.2em" }}>{`${row}, ${col}`}</p>}
             </div>)
           })
         })}
