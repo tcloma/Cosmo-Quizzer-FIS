@@ -57,7 +57,6 @@ const Planet = ({ planetId, playerId, sliderData, lives, setLives, getUrl }) => 
 
   return (
     <div id="closeup-planet">
-      <div>
         <img className='planet'src={planetUrl} alt="planet" style={{width:"800px", height:"800px"}} />
         <img
           className='player'
@@ -69,7 +68,6 @@ const Planet = ({ planetId, playerId, sliderData, lives, setLives, getUrl }) => 
           alt="enemy"
           src={`https://app.pixelencounter.com/api/v2/basic/svgmonsters/image/png?saturation=0&size=200&id=${planetId}`}
         />
-      </div>
 
         {!timerStart ? <button onClick={handleTimerStart}> Start quiz </button> :
           <QuizSection
