@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import QuizSection from "./QuizSection"
 import questions from "../questions";
 
-const Planet = ({ planetId, playerId, sliderData, lives, setLives }) => {
+const Planet = ({ planetId, playerId, sliderData, lives, setLives, getUrl }) => {
 
   // Destructured props
   const {sliderA, sliderB, sliderC} = sliderData;
@@ -13,7 +13,7 @@ const Planet = ({ planetId, playerId, sliderData, lives, setLives }) => {
   const [timerStart, setTimerStart] = useState(false)
 
   // Constant Variables
-  const planetUrl = `https://app.pixelencounter.com/api/basic/planets?frame=13&width=800&height=800&size=500&disableStars=true&disableBackground=true&id=${planetId}`
+  const planetUrl = getUrl(planetId)
   const currentQuestions = questions.find((question) => question.id === questionId)
 
   const handleTimerStart = () => {
@@ -58,7 +58,7 @@ const Planet = ({ planetId, playerId, sliderData, lives, setLives }) => {
   return (
     <div id="closeup-planet">
       <div>
-        <img className='planet'src={planetUrl} alt="planet" />
+        <img className='planet'src={planetUrl} alt="planet" style={{width:"800px", height:"800px"}} />
         <img
           className='player'
           alt='player'

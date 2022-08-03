@@ -1,7 +1,7 @@
 import PlanetGallery from "./SubComponents/PlanetGallery";
 import CharacterGenerator from "./SubComponents/CharacterGenerator";
 
-const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, lives }) => {
+const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, lives, getUrl }) => {
 
   const {sliderA, sliderB, sliderC} = sliderData;
 
@@ -35,7 +35,7 @@ const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, lives })
             <span> ✅0 ❤️{lives} </span>
           </div>
         </div>
-        <PlanetGallery />
+        <PlanetGallery getUrl={getUrl} />
       </div>
     </div>
   )

@@ -1,4 +1,4 @@
-const PlanetGallery = () => {
+const PlanetGallery = ({getUrl}) => {
 
   const idArr = [1, 2, 3, 4, 5]
   
@@ -12,7 +12,7 @@ const PlanetGallery = () => {
                 className="gallery-planet"
                 alt='planet'
                 key={index}
-                src={`https://app.pixelencounter.com/api/basic/planets?frame=13&width=800&height=800&size=500&disableStars=true&disableBackground=true&id=${id}`}
+                src={getUrl(index)}
               />
               <img
                 className="gallery-inhabitant"

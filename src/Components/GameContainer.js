@@ -11,7 +11,7 @@ import StatScreen from "./StatScreen";
 
 const GameContainer = () => {
 
-  const getUrl = (id) => `https://app.pixelencounter.com/api/basic/planets?frame=13&width=800&height=800&size=500&disableStars=true&disableBackground=true&id=${id}`
+  const getUrl = (id) => `https://app.pixelencounter.com/api/basic/planets?frame=13&width=240&height=240&disableStars=true&disableBackground=true&id=${id}`
 
   const ROWS = 6
   const COLS = 6
@@ -66,6 +66,7 @@ const GameContainer = () => {
               sliderData={sliderData}
               lives={lives}
               setLives={setLives}
+              getUrl={getUrl}
             />} />
           <Route path='/StatScreen' element={
             <StatScreen playerId={playerId}
@@ -73,6 +74,7 @@ const GameContainer = () => {
               setSliderData={setSliderData}
               sliderData={sliderData}
               lives={lives}
+              getUrl={getUrl}
             />} />
         </Routes>
       </Router>
