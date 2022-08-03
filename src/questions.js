@@ -42,65 +42,65 @@ const questions = [
   {
     id: 7,
     prompt:
-      "Example prompt",
-      answers: ["a","b","c","d"],
-      correctIndex: 1
+      "'const App = () => {}' is an example of a ______",
+    answers: ["Class component", "HTML component", "Function component", "Arrow component"],
+    correctIndex: 2
   },
   {
     id: 8,
     prompt:
-      "Example prompt",
-      answers: ["a","b","c","d"],
-      correctIndex: 1
+      "Which of the following depicts a correct example of Pascal Case?",
+    answers: ["pascalCase", "Pascal-Case", "PascalCase", "pascal_case"],
+    correctIndex: 2
   },
   {
     id: 9,
     prompt:
-      "Example prompt",
-      answers: ["a","b","c","d"],
-      correctIndex: 1
+      "A controlled form is a form that derives its input value from ______",
+    answers: ["state", "forms", "text", "imports"],
+    correctIndex: 0
   },
   {
     id: 10,
     prompt:
-      "Example prompt",
-      answers: ["a","b","c","d"],
-      correctIndex: 1
+      "The _______ allows us to control when useEffect will run",
+    answers: ["side effect", "callback function", "fetch request", "dependencies array"],
+    correctIndex: 3
   },
   {
     id: 11,
     prompt:
-      "Example prompt",
-      answers: ["a","b","c","d"],
-      correctIndex: 1
+      "What information can be leaked from an embedded image if the source does not support course?",
+    answers: ["file name", "image binary", "height and width", "nothing"],
+    correctIndex: 2
   },
   {
     id: 12,
     prompt:
-      "Example prompt",
-      answers: ["a","b","c","d"],
-      correctIndex: 1
+      "Who does Michael main in smash?",
+    answers: ["Inkling", "Roy", "Sheik", "Antonio"],
+    correctIndex: 3
   },
   {
     id: 13,
     prompt:
-      "Example prompt",
-      answers: ["a","b","c","d"],
-      correctIndex: 1
+      "Which of the following is the most important: ",
+    answers: ["Health and Wellness", "Fashion", "Civil Engineering", "DrillsDrillsDrills"],
+    correctIndex: 3
   },
   {
     id: 14,
     prompt:
-      "Example prompt",
-      answers: ["a","b","c","d"],
-      correctIndex: 1
+      "What is the name of the new lecture room?",
+    answers: ["Edith Windsor", "Edith Windrazor", "Edith Winsor", "Edeth Winsor"],
+    correctIndex: 0
   },
   {
     id: 15,
     prompt:
-      "Example prompt",
-      answers: ["a","b","c","d"],
-      correctIndex: 1
+      "Who is our Zoom lecturer for Phase 2?",
+    answers: ["Louis Medina", "Dakota Martinez", "Tomer Harari", "Duncan Uruchima"],
+    correctIndex: 1
   },
 ];
 

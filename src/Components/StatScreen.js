@@ -46,7 +46,7 @@ const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, playerUr
         {showQuestions ?
           <div className="log-container">
             {questions.map((question) => {
-              return <QuestionLogCard questionObject={question} />
+              return <QuestionLogCard key={question.id} questionObject={question} />
             })}
           </div>
           : null}

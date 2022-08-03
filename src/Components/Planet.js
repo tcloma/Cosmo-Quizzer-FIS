@@ -32,7 +32,8 @@ const Planet = ({ planetId, playerId, playerUrl, lives, setLives, getUrl }) => {
     }, 1000);
 
     if (lives === 0) {
-      alert('dead')
+      // alert('dead')
+      setTimerStart(false)
     }
 
     return function () {
