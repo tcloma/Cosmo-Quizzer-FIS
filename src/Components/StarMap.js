@@ -42,7 +42,7 @@ const StarMap = ({ROWS, COLS, squares, setPlanetId, move, playerUrl, position}) 
               backgroundSize: "100% 100%",
             }}>
               {(position[0] === row && position[1] === col) 
-                ? <img src={playerUrl} alt="player" style={{width:"50%"}}/>
+                ? <img src={playerUrl} alt="player" style={{height:"70%", width:"51%", marginTop:"15%"}}/>
                 : <p style={{ fontSize: "0.2em" }}>{`${row}, ${col}`}</p>}
             </div>)
           })
