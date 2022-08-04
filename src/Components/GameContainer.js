@@ -10,6 +10,7 @@ import Planet from './Planet'
 import NavBar from './NavBar';
 import StatScreen from "./StatScreen";
 import questions from "../questions";
+import Instructions from "./Instructions";
 
 const GameContainer = () => {
 
@@ -26,7 +27,7 @@ const GameContainer = () => {
     useEffect(() => {
       setTimeout(() => {
         setFinish(true);
-      }, 3000)
+      }, 3000) 
     })
 
     return (
@@ -91,7 +92,8 @@ const GameContainer = () => {
       <Router>
         <NavBar />
         <Routes>
-          <Route path="/" element={
+          <Route path="/" element = {<Instructions />} />
+          <Route path="/Map" element={
             <StarMap
               squares={squares}
               ROWS={ROWS}
