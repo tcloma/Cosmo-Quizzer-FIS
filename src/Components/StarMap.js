@@ -6,6 +6,26 @@ const StarMap = ({ROWS, COLS, squares, setPlanetId, move, playerUrl, position}) 
 
   const [toPlanet, setToPlanet] = useState(null)
 
+
+  const colorOf = (num) => {
+    switch (num) {
+      case 0:
+        return "#fff"
+      case 1:
+        return "#c96"
+      case 2:
+        return "#c3c"
+      case 3:
+        return "#f03"
+      case 4:
+        return "#9c9"
+      case 5:
+        return "#33f"
+      default:
+        return "white"
+    }
+  }
+
   if (toPlanet) {
 
     if (toPlanet === "home") return (
@@ -43,13 +63,19 @@ const StarMap = ({ROWS, COLS, squares, setPlanetId, move, playerUrl, position}) 
             }} style={{
               // width: "10vh",
               // height: "10vh",
-              border: "1px solid",
+              border: `1px solid ${colorOf(Math.max(row, col))}`,
               display: "flex",
               placeContent: "center",
               backgroundImage: `${!el.hidden ? `url(${el.img})` :"url(space.jpeg)"}`,
               backgroundSize: "100% 100%",
             }}>
-              <div className="popup hidden" id={`popup@(${row},${col})`}>You cannot travel here (discover more planets!)</div>
+              <div className="popup hidden" id={`popup@(${row},${col})`}
+              style={{
+                position: "absolute",
+                backgroundColor: "#fff",
+                color:"black",
+                maxWidth: "13vh"
+              }}>You can't go here (find planets!)</div>
               {(position[0] === row && position[1] === col) 
                 ? <img src={playerUrl} alt="player" style={{height:"70%", width:"51%", marginTop:"15%"}}/>
                 : <p style={{ fontSize: "0.2em" }}>{`${row}, ${col}`}</p>}

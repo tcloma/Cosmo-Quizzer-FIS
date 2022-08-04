@@ -38,7 +38,8 @@ const GameContainer = () => {
 
   const move = (row, col, element) => {
     if(row > clearance || col > clearance) {
-      alert("here")
+      document.getElementById(`popup@(${row},${col})`).classList.remove('hidden')
+      setTimeout(() => { document.getElementById(`popup@(${row},${col})`).classList.add('hidden') }, 1000)
       return false
     }
     setPosition([row, col])
