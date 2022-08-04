@@ -49,6 +49,7 @@ const StarMap = ({ROWS, COLS, squares, setPlanetId, move, playerUrl, position}) 
               backgroundImage: `${!el.hidden ? `url(${el.img})` :"url(space.jpeg)"}`,
               backgroundSize: "100% 100%",
             }}>
+              <div className="popup hidden" id={`popup@(${row},${col})`}>You cannot travel here (discover more planets!)</div>
               {(position[0] === row && position[1] === col) 
                 ? <img src={playerUrl} alt="player" style={{height:"70%", width:"51%", marginTop:"15%"}}/>
                 : <p style={{ fontSize: "0.2em" }}>{`${row}, ${col}`}</p>}

@@ -34,7 +34,10 @@ const GameContainer = () => {
   const playerUrl = `https://app.pixelencounter.com/api/v2/basic/svgmonsters/image/png?size=200&saturation=${sliderA / 100}&colored=true&colorVariations=${sliderB / 100}&edgeBrightness=${sliderC / 100}&id=${playerId}`
 
   const move = (row, col, element) => {
-    if(row > clearance || col > clearance) return false;
+    if(row > clearance || col > clearance) {
+      alert("here")
+      return false
+    }
     setPosition([row, col])
     //squares[row][col].hidden = false;
     if (element.type === "planet" && element.hidden) setClearance(clearance + 1)
