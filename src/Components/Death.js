@@ -1,9 +1,5 @@
-import { useState } from "react"
-import { Navigate } from "react-router-dom"
 
 const Death = () => {
-
-    const [ready, setReady] = useState(false)
 
 
     return (
