@@ -7,14 +7,17 @@ import QuestionLogCard from "./SubComponents/QuestionLogCard";
 const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, playerUrl, getUrl, lives, numberCorrect, planetsCleared }) => {
 
   const [showQuestions, setShowQuestions] = useState(false)
-  
   const currentQuestions = questions[planetsCleared].content
   // console.log(currentQuestions)
 
   let localArray = []
-  localArray.push(...currentQuestions)
-  console.log(localArray)
-
+  questions.map((object, index) => {
+    if (planetsCleared-1 >= index){
+      localArray.push(...object.content)
+      console.log(localArray)
+    }
+  })
+  
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <div id="stat-screen">
@@ -53,8 +56,8 @@ const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, playerUr
         />
         {showQuestions ?
           <div className="log-container">
-            {localArray.map((question) => {
-              return <QuestionLogCard key={question.id} questionObject={question} />
+            {localArray.map((question, index) => {
+              return <QuestionLogCard key={index} questionObject={question} />
             })}
           </div>
           : null}

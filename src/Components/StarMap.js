@@ -72,8 +72,7 @@ const StarMap = ({ROWS, COLS, squares, setPlanetId, move, playerUrl, position}) 
               <div className="popup hidden" id={`popup@(${row},${col})`}
               style={{
                 position: "absolute",
-                backgroundColor: "#fff",
-                color:"black",
+                backgroundColor: "#000",
                 maxWidth: "13vh"
               }}>You can't go here (find planets!)</div>
               {(position[0] === row && position[1] === col) 

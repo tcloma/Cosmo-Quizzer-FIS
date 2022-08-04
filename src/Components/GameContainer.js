@@ -10,11 +10,11 @@ import Planet from './Planet'
 import NavBar from './NavBar';
 import StatScreen from "./StatScreen";
 import questions from "../questions";
+import Instructions from "./Instructions";
 
 const GameContainer = () => {
 
   const getUrl = (id) => `https://app.pixelencounter.com/api/basic/planets?frame=13&width=240&height=240&disableStars=true&disableBackground=true&disableSatellites=true&id=${id}`
-  const getQuestion = (id) => questions.filter((question) => question.id === id)
 
   const ROWS = 6
   const COLS = 6
@@ -26,7 +26,7 @@ const GameContainer = () => {
     useEffect(() => {
       setTimeout(() => {
         setFinish(true);
-      }, 3000)
+      }, 500) 
     })
 
     return (
@@ -54,6 +54,7 @@ const GameContainer = () => {
     'sliderB': 50,
     'sliderC': 25
   })
+  const [questionArray, setQuestionArray] = useState([])
 
   const { sliderA, sliderB, sliderC } = sliderData;
   const playerUrl = `https://app.pixelencounter.com/api/v2/basic/svgmonsters/image/png?size=200&saturation=${sliderA / 100}&colored=true&colorVariations=${sliderB / 100}&edgeBrightness=${sliderC / 100}&id=${playerId}`
@@ -91,7 +92,8 @@ const GameContainer = () => {
       <Router>
         <NavBar />
         <Routes>
-          <Route path="/" element={
+          <Route path="/" element = {<Instructions />} />
+          <Route path="/Map" element={
             <StarMap
               squares={squares}
               ROWS={ROWS}
@@ -126,6 +128,8 @@ const GameContainer = () => {
               lives={lives}
               numberCorrect={numberCorrect}
               planetsCleared={clearance-1}
+              questionArray={questionArray}
+              setQuestionArray={setQuestionArray}
             />} />
         </Routes>
       </Router>
