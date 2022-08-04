@@ -7,7 +7,14 @@ const StarMap = ({ROWS, COLS, squares, setPlanetId, move, playerUrl, position}) 
   const [toPlanet, setToPlanet] = useState(null)
 
   if (toPlanet) {
-    return (<Navigate to={`/Planet`} replace={true} />)
+
+    if (toPlanet === "home") return (
+      <Navigate to={`/StatScreen`} replace={true} />
+    )
+
+    return (
+      <Navigate to={`/Planet`} replace={true} />
+    )
   }
 
   return (
@@ -28,6 +35,7 @@ const StarMap = ({ROWS, COLS, squares, setPlanetId, move, playerUrl, position}) 
           return element.map((el, col) => {
             return (<div key={`${row},${col}`}
             onClick={() => {
+              if (el.subtype === "home") {setToPlanet("home")} 
               if (move(row, col, el)) {
                 if (el.type === "planet" && el.subtype !== "home") setPlanetId(el.img.slice(-1));
                 if (el.type === "planet" && el.subtype !== "home") setToPlanet(el.subtype);
