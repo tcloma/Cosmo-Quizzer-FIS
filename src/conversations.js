@@ -6,22 +6,22 @@ const conversations = [
   },
   {
     id:2,
-    messages: ['Codeeznuts', 'fuck-'],
-    classes: ['enemy-message', 'player-message']
+    messages: ['Hey, do you know code?', 'Code? what do you mean code?', 'Codeeznuts in your mouth', '????????????????????????'],
+    classes: ['enemy-message', 'player-message', 'enemy-message', 'player-message']
   },
   {
     id: 3,
-    messages: [''],
-    classes: ['']
+    messages: ['Uhh hi?', 'Meow', 'What?-', 'Meow', 'Are you okay?', '😼'],
+    classes: ['player-message', 'enemy-message', 'player-message', 'enemy-message', 'player-message', 'enemy-message']
   },
   {
     id: 4,
-    messages: [''],
-    classes: ['']
+    messages: ['Hello welcome to our planet!!', 'Please enjoy your stay!', 'I am here to colonize you', 'Oh no- not again'],
+    classes: ['enemy-message', 'enemy-message', 'player-message','enemy-message']
   },
   {
     id: 5,
-    messages: ["You've come this far, all for nothing", "kinda edgy bro frfr", ""],
+    messages: ["You've come this far, all for nothing", "ayt kinda edgy bro frfr"],
     classes: ['enemy-message', 'player-message']
   }
 ]
