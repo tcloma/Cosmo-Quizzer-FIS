@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import QuizSection from "./QuizSection"
 import Dialogue from "./SubComponents/Dialogue";
 
-const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, setNumberCorrect, questions }) => {
+const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, setNumberCorrect, questions, setPlanetsCleared, planetsCleared }) => {
 
   // States
   const [questionId, setQuestionId] = useState(0)
@@ -32,11 +32,18 @@ const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, s
       return;
     }
 
-    if (lives === 0 || currentQuestions === undefined) {
+    if (lives === 0) {
       alert('death sequence or smth idk')
       setTimerStart(false)
       clearTimeout(timerId)
       /* Route back to StarMap */
+    }
+
+    if (currentQuestions === undefined){
+      alert('win sequence or smth')
+      setTimerStart(false)
+      clearTimeout(timerId)
+      setPlanetsCleared(planetsCleared+1)
     }
 
 

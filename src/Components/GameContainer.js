@@ -23,8 +23,8 @@ const GameContainer = () => {
   const [position, setPosition] = useState([0, 0])
 
   const [lives, setLives] = useState(5)
-  const [numberCorrect, setNumberCorrect] = useState(0)
   const [planetId, setPlanetId] = useState(1)
+  const [numberCorrect, setNumberCorrect] = useState(0)
 
   const [playerId, setPlayerId] = useState(1)
   const [sliderData, setSliderData] = useState({
@@ -85,6 +85,8 @@ const GameContainer = () => {
               numberCorrect={numberCorrect}
               setNumberCorrect={setNumberCorrect}
               questions={questions}
+              // setPlanetsCleared={setClearance}
+              planetsCleared={clearance-1}
             />} />
           <Route path='/StatScreen' element={
             <StatScreen playerId={playerId}
@@ -94,6 +96,7 @@ const GameContainer = () => {
               getUrl={getUrl}
               lives={lives}
               numberCorrect={numberCorrect}
+              planetsCleared={clearance-1}
             />} />
         </Routes>
       </Router>
