@@ -10,6 +10,7 @@ const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, s
   const [timeRemaining, setTimeRemaining] = useState(15)
   const [timerStart, setTimerStart] = useState(false)
   const [startConvo, setStartConvo] = useState(false)
+  const [leaving, setLeaving] = useState(false)
 
   // Constant Variables
   const planetUrl = getUrl(planetId)
@@ -81,6 +82,7 @@ const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, s
 
   return (
     <div id="closeup-planet">
+      {leaving && <Navigate to="/Map"/>}
       {(currentQuestions === undefined) && <Navigate to="/Map" />}
       {(lives === 0) && <Navigate to="/Death" />}
 
@@ -95,11 +97,13 @@ const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, s
         alt='player'
         src={playerUrl}
       />
-      <img
+      {cleared || <img
         className='enemy'
         alt="enemy"
         src={`https://app.pixelencounter.com/api/v2/basic/svgmonsters/image/png?saturation=0&size=200&id=${planetId}`}
-      />
+      />}
+
+      {cleared && <button onClick={() => {setLeaving(true)}}>Return to Map</button>}
 
       {!timerStart ? null :
         <QuizSection
