@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import QuizSection from "./QuizSection"
 import Dialogue from "./SubComponents/Dialogue";
 
@@ -36,7 +37,7 @@ const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, s
       alert('death sequence or smth idk')
       setTimerStart(false)
       clearTimeout(timerId)
-      /* Route back to StarMap */
+      
     }
 
     if (currentQuestions === undefined){
@@ -79,6 +80,7 @@ const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, s
 
   return (
     <div id="closeup-planet">
+      {(lives === 0 || currentQuestions === undefined) && <Navigate to="/" />}
 
       {startConvo ?
         <div className="dialogue-box">
