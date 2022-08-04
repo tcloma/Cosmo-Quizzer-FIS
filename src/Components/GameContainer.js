@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
+  Navigate
 } from "react-router-dom";
 import StarMap from './StarMap'
 import Planet from './Planet'
@@ -17,6 +18,27 @@ const GameContainer = () => {
 
   const ROWS = 6
   const COLS = 6
+
+  const Transition = () => {
+
+    const [finish, setFinish] = useState(false)
+
+    useEffect(() => {
+      setTimeout(() => {
+        setFinish(true);
+      }, 3000)
+    })
+
+    return (
+      <div>
+        {finish ? <Navigate to="/Planet" /> : 
+        <video autoPlay muted loop width="750" height="500" >
+          <source src="transition.mp4" type="video/mp4" />
+        </video>}
+        <h1>Traveling to planet...</h1>
+      </div>
+    )
+  }
 
   const [squares, setSquares] = useState([])
   const [clearance, setClearance] = useState(1)
@@ -79,6 +101,9 @@ const GameContainer = () => {
               playerUrl={playerUrl}
               position={position}
             />} />
+          <Route path="/transition" element = {
+            <Transition />
+          } />
           <Route path="/Planet" element={
             <Planet
               getUrl={getUrl}

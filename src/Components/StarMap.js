@@ -33,7 +33,7 @@ const StarMap = ({ROWS, COLS, squares, setPlanetId, move, playerUrl, position}) 
     )
 
     return (
-      <Navigate to={`/Planet`} replace={true} />
+      <Navigate to={`/transition`} replace={true} />
     )
   }
 
