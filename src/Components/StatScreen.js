@@ -4,7 +4,7 @@ import PlanetGallery from "./SubComponents/PlanetGallery";
 import CharacterGenerator from "./SubComponents/CharacterGenerator";
 import QuestionLogCard from "./SubComponents/QuestionLogCard";
 
-const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, playerUrl, getUrl, lives }) => {
+const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, playerUrl, getUrl, lives, numberCorrect }) => {
 
   const [showQuestions, setShowQuestions] = useState(false)
 
@@ -35,7 +35,7 @@ const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, playerUr
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <div className="mid-text">
             <h3> Planets Cleared </h3>
-            <span> ✅0 ❤️{lives} </span>
+            <span> ✅{numberCorrect} ❤️{lives} </span>
           </div>
         </div>
         <PlanetGallery 

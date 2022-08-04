@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 const QuizSection = ({ timeRemaining, lives, currentQuestions, checkAnswer }) => {
 
   let hearts = ''
@@ -7,26 +9,28 @@ const QuizSection = ({ timeRemaining, lives, currentQuestions, checkAnswer }) =>
 
   return (
     <div id="quiz-container">
-      <div id="quiz-section">
-      <div id="quiz-wing"> {hearts}</div>
-        <h1>{currentQuestions.prompt}</h1>
-        <div className="quiz-buttons">
-          {currentQuestions.answers.map((answer, index) => {
-            const isCorrect = currentQuestions.correctIndex === index
-            return (
-              <button
-                key={index}
-                onClick={() => checkAnswer(isCorrect)}>
-                {answer}
-              </button>
-            )
-          })}
+      {currentQuestions !== undefined ?
+        <div id="quiz-section">
+          <div id="quiz-wing"> {hearts}</div>
+          <h1>{currentQuestions.prompt}</h1>
+          <div className="quiz-buttons">
+            {currentQuestions.answers.map((answer, index) => {
+              const isCorrect = currentQuestions.correctIndex === index
+              return (
+                <button
+                  key={index}
+                  onClick={() => checkAnswer(isCorrect)}>
+                  {answer}
+                </button>
+              )
+            })}
+          </div>
+          <br />
+          <div id='progress-bar'>
+            <div id='progress-inner' style={{ width: `${timeRemaining / 15 * 100}%` }}></div>
+          </div>
         </div>
-        <br />
-        <div id='progress-bar'>
-          <div id='progress-inner' style={{ width: `${timeRemaining * 10}%` }}></div>
-        </div>
-      </div>
+        : null }
     </div>
   )
 }
