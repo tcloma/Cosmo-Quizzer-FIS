@@ -39,6 +39,7 @@ button:hover {
 /* Planet Component */
 
 #closeup-planet {
+  /* position: relative; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,21 +54,64 @@ button:hover {
   filter: drop-shadow(-1px 2px 2px #222);
 }
 
+.dialogue-box {
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 15%;
+  width: 12%;
+  height: 30%;
+  background-color: white;
+  border-radius: 1em;
+  box-shadow: 1px 1px 20px #3a3b3c;
+  padding: 0.5rem .5rem;
+}
+
+.dialogue-box p {
+  z-index: 2;
+  font-family: 'SanFrancisco';
+  font-size: 1em;
+  border-radius: 1.15rem;
+  line-height: 1.25;
+  padding: 0.5rem .875rem;
+  margin: 0.1rem 0;
+  max-width: 75%;
+  width: fit-content;
+  /* position: relative; */
+  /* word-wrap: break-word; */
+}
+
+.player-message {
+  align-self: flex-end;
+  background-color: #248bf5;
+  color: #fff
+}
+
+.enemy-message {
+  align-items: flex-start;
+  background-color: #e5e5ea;
+  color: #000;
+}
+
 .planet {
   filter: drop-shadow(-10px 10px 5px black);
   width: 100%;
   height: 0%;
   object-fit: contain;
+  animation: rotation 180s infinite linear;
 }
 
 .player {
   top: 40%;
-  left: 40%
+  left: 55%;
+  z-index: 3;
 }
 
 .enemy {
-  top: 50%;
-  left: 55%;
+  top: 40%;
+  left: 42%;
+  z-index: 3;
 }
 
 /* Quiz Component */
@@ -335,9 +379,18 @@ button:hover {
   /* transform: scale(1.01); */
 }
 
-.log-card-flipped:hover{
+.log-card-flipped:hover {
   box-shadow: 1px 1px 20px black;
   cursor: pointer;
+}
+
+/* Fonts */
+
+@font-face {
+  font-family: "SanFrancisco";
+  src:
+    url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff2") format("woff2"),
+    url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff") format("woff");
 }
 
 /* Animations */
@@ -399,5 +452,15 @@ button:hover {
 
   100% {
     transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
   }
 }
