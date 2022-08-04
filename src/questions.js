@@ -98,7 +98,7 @@ const questions = [
       {
         id: 1,
         prompt:
-          "What information can be leaked from an embedded image if the source does not support course?",
+          "What information can be leaked from an embedded image if the source does not support CORS?",
         answers: ["file name", "image binary", "height and width", "nothing"],
         correctIndex: 2
       },
