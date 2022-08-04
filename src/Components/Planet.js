@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import QuizSection from "./QuizSection"
 import Dialogue from "./SubComponents/Dialogue";
 
-const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, setNumberCorrect, questions, planetsCleared, cleared }) => {
+const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, setNumberCorrect, questions, cleared }) => {
 
   // States
   const [questionId, setQuestionId] = useState(0)
