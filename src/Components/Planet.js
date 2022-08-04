@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import QuizSection from "./QuizSection"
 import Dialogue from "./SubComponents/Dialogue";
 
-const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, setNumberCorrect, questions, setPlanetsCleared, planetsCleared }) => {
+const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, setNumberCorrect, questions }) => {
 
   // States
   const [questionId, setQuestionId] = useState(0)
@@ -21,7 +21,7 @@ const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, s
     const timerId = setTimeout(() => {
       if (timerStart === true && lives > 0) {
         setTimeRemaining((timeRemaining) => timeRemaining - 1);
-      }
+      } 
     }, 1000);
 
     if (timeRemaining < 0) {
@@ -37,14 +37,13 @@ const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, s
       alert('death sequence or smth idk')
       setTimerStart(false)
       clearTimeout(timerId)
-      
+
     }
 
-    if (currentQuestions === undefined){
+    if (currentQuestions === undefined) {
       alert('win sequence or smth')
       setTimerStart(false)
       clearTimeout(timerId)
-      setPlanetsCleared(planetsCleared+1)
     }
 
 
@@ -53,18 +52,18 @@ const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, s
     };
   }, [timeRemaining, timerStart, lives])
 
-  
+
   useEffect(() => {
     setTimeout(() => {
       setStartConvo(true)
     }, 2000)
-    
+
     setTimeout(() => {
       setTimerStart(true)
       setStartConvo(false)
     }, 5000)
   }, [])
-  
+
   const checkAnswer = (correct) => {
     console.log(correct)
     if (correct === true) {
