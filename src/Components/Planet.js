@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import QuizSection from "./QuizSection"
 import Dialogue from "./SubComponents/Dialogue";
 
-const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, setNumberCorrect, questions, planetsCleared }) => {
+const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, setNumberCorrect, questions, planetsCleared, cleared }) => {
 
   // States
   const [questionId, setQuestionId] = useState(0)
@@ -18,6 +18,7 @@ const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, s
   // console.log(currentQuestions)
 
   useEffect(() => {
+    if (cleared) return
     const timerId = setTimeout(() => {
       if (timerStart === true && lives > 0) {
         setTimeRemaining((timeRemaining) => timeRemaining - 1);
@@ -54,6 +55,7 @@ const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, s
 
   
   useEffect(() => {
+    if (cleared) return
     setTimeout(() => {
       setStartConvo(true)
     }, 2000)
@@ -87,7 +89,7 @@ const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, s
           <Dialogue planetId={planetId} />
         </div>
         : null}
-      <img className='planet' src={planetUrl} alt="planet" style={{ width: "800px", height: "800px" }} />
+      <img className='planet' src={planetUrl} alt="planet" style={{ width: "800px", height: "800px", zIndex:"-5" }} />
       <img
         className='player'
         alt='player'
