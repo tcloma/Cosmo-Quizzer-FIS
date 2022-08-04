@@ -11,6 +11,7 @@ import NavBar from './NavBar';
 import StatScreen from "./StatScreen";
 import questions from "../questions";
 import Instructions from "./Instructions";
+import Death from "./Death";
 
 const GameContainer = () => {
 
@@ -139,6 +140,9 @@ const GameContainer = () => {
               questionArray={questionArray}
               setQuestionArray={setQuestionArray}
             />} />
+          <Route path="/Death" element={
+            <Death />
+          } />
         </Routes>
       </Router>
     </div>

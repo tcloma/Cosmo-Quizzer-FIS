@@ -36,14 +36,12 @@ const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, s
     }
 
     if (lives === 0) {
-      alert('death sequence or smth idk')
       setTimerStart(false)
       clearTimeout(timerId)
 
     }
 
     if (currentQuestions === undefined) {
-      alert('win sequence or smth')
       setTimerStart(false)
       clearTimeout(timerId)
     }
