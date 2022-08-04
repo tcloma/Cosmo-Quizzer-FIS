@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import QuizSection from "./QuizSection"
 import Dialogue from "./SubComponents/Dialogue";
 
-const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, setNumberCorrect, questions, setPlanetsCleared, planetsCleared }) => {
+const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, setNumberCorrect, questions, planetsCleared }) => {
 
   // States
   const [questionId, setQuestionId] = useState(0)
@@ -44,7 +44,6 @@ const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, s
       alert('win sequence or smth')
       setTimerStart(false)
       clearTimeout(timerId)
-      setPlanetsCleared(planetsCleared+1)
     }
 
 
@@ -80,7 +79,8 @@ const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, s
 
   return (
     <div id="closeup-planet">
-      {(lives === 0 || currentQuestions === undefined) && <Navigate to="/" />}
+      {(currentQuestions === undefined) && <Navigate to="/" />}
+      {(lives === 0) && <Navigate to="/death" />}
 
       {startConvo ?
         <div className="dialogue-box">
