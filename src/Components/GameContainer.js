@@ -19,6 +19,9 @@ const GameContainer = () => {
   const ROWS = 6
   const COLS = 6
 
+  const [cleared, setCleared] = useState(false);
+
+
   const Transition = () => {
 
     const [finish, setFinish] = useState(false)
@@ -67,7 +70,11 @@ const GameContainer = () => {
     }
     setPosition([row, col])
     //squares[row][col].hidden = false;
-    if (element.type === "planet" && element.hidden) setClearance(clearance + 1)
+    if (element.type === "planet") {
+      let visited = false
+      element.hidden ? setClearance(clearance + 1) : visited=true;
+      setCleared(visited)
+    }
     if (element.hidden) {
       let newSquares = [...squares];
       newSquares[row][col].hidden = false;
@@ -118,6 +125,7 @@ const GameContainer = () => {
               questions={questions}
               // setPlanetsCleared={setClearance}
               planetsCleared={clearance-1}
+              cleared={cleared}
             />} />
           <Route path='/StatScreen' element={
             <StatScreen playerId={playerId}
