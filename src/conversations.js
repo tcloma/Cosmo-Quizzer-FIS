@@ -1,7 +1,7 @@
 const conversations = [
   {
     id: 1,
-    messages: ['Uhh hi?', 'Meow', 'What?-', 'Meow'],
+    messages: ['Hi! Wanna fight for control of the planet?', 'Let us fight using our wits in coding trivia!', 'Oh okay', 'NO WAIT I FORGOT TO HEAL IM 1 HP'],
     classes: ['player-message', 'enemy-message', 'player-message', 'enemy-message']
   },
   {

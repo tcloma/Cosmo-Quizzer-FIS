@@ -7,14 +7,13 @@ import QuestionLogCard from "./SubComponents/QuestionLogCard";
 const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, playerUrl, getUrl, lives, numberCorrect, planetsCleared }) => {
 
   const [showQuestions, setShowQuestions] = useState(false)
-  const currentQuestions = questions[planetsCleared].content
   // console.log(currentQuestions)
 
   let localArray = []
   questions.map((object, index) => {
     if (planetsCleared-1 >= index){
       localArray.push(...object.content)
-      console.log(localArray)
+      // console.log(localArray)
     }
   })
   
