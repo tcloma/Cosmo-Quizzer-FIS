@@ -11,6 +11,13 @@ const Instructions = () => {
       <div className="instructions">
         <div className="star-wars">
           <div className="crawl">
+            <h1> Cosmo Quizzer</h1>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <ul>
               <li>
                 <h1>Take over the solar system! Gain control of planets by answering questions correctly <span style={{ fontSize: "2px" }}>unless its about micheal's main in which case you must answer as incorrectly as possible</span></h1>

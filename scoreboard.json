@@ -35,6 +35,18 @@
       "PlanetsClearead": "🪐🪐🪐🪐🪐",
       "LivesRemaining": "❤️❤️",
       "id": 6
+    },
+    {
+      "Name": "Ash and Ty",
+      "PlanetsClearead": "🪐🪐🪐🪐🪐",
+      "LivesRemaining": "❤️",
+      "id": 7
+    },
+    {
+      "Name": ":(",
+      "PlanetsClearead": "",
+      "LivesRemaining": "❤️❤️❤️❤️❤️",
+      "id": 8
     }
   ]
 }

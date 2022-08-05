@@ -443,8 +443,6 @@ a:link, a:visited, a:hover, a:active{
   flex-direction: column;
 }
 
-
-
 thead tr{
   background-color: #1c181f;
   box-shadow: 1px 1px 20px #3a3b3c;
