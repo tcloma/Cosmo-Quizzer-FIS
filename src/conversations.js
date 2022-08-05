@@ -1,7 +1,7 @@
 const conversations = [
   {
     id: 1,
-    messages: ['Hi! Wanna fight for control of the planet?', 'Let us fight using our wits in coding trivia!', 'Oh okay', 'NO WAIT I FORGOT TO HEAL IM 1 HP'],
+    messages: ['Hi! Wanna fight for control of the planet?', 'Let us fight using our wits in coding trivia!', 'Oh bet', 'NO WAIT I FORGOT TO HEAL IM 1 HP'],
     classes: ['player-message', 'enemy-message', 'player-message', 'enemy-message']
   },
   {
@@ -16,13 +16,13 @@ const conversations = [
   },
   {
     id: 4,
-    messages: ['Hello welcome to our planet!!', 'Please enjoy your stay!', 'I am here to colonize you', 'Oh no- not again'],
-    classes: ['enemy-message', 'enemy-message', 'player-message','enemy-message']
+    messages: ['Hello welcome to our planet!!', 'Please enjoy your stay!', 'I am here to colonize you', 'Oh no- not again','😈'],
+    classes: ['enemy-message', 'enemy-message', 'player-message','enemy-message','player-message']
   },
   {
     id: 5,
-    messages: ["You've come this far, all for nothing", "ayt kinda edgy bro frfr"],
-    classes: ['enemy-message', 'player-message']
+    messages: ["You've come this far, all for nothing", "kinda edgy bro frfr", 'YOUR INSOLENCE SHALL NOT BE FORGIVEN!', '🤨'],
+    classes: ['enemy-message', 'player-message','enemy-message','player-message']
   }
 ]
 export default conversations;

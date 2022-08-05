@@ -6,9 +6,9 @@ const UI = () => {
 
   return(
     <div id="ui">
-      <h1 onClick={handleClick}> <span className="material-symbols-outlined" style={{fontSize:'50px'}}>
-        menu
-      </span></h1>
+      <h1 onClick={handleClick}>
+        X
+      </h1>
     </div>
   )
 }

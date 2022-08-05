@@ -30,7 +30,6 @@ button:hover {
 
 #ui {
   position: absolute;
-  display: flex;
   gap: 10px;
   top: -20px;
   left: 10px;
@@ -304,6 +303,7 @@ button:hover {
   justify-content: space-between;
   width: 100%;
   height: fit-content;
+  min-height: 27vh;
 }
 
 .gallery-item {
@@ -382,6 +382,11 @@ button:hover {
 .log-card-flipped:hover {
   box-shadow: 1px 1px 20px black;
   cursor: pointer;
+}
+
+.question-form{
+  display: flex;
+  flex-direction: column;
 }
 
 /* Fonts */
