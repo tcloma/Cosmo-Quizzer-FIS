@@ -389,6 +389,14 @@ button:hover {
   flex-direction: column;
 }
 
+.scoreboard{
+  border: 2px white solid;
+}
+
+.scoreboard td{
+  color:
+}
+
 /* Fonts */
 
 @font-face {

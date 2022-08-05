@@ -28,15 +28,15 @@ const GameContainer = () => {
     useEffect(() => {
       setTimeout(() => {
         setFinish(true);
-      }, 500) 
+      }, 500)
     })
 
     return (
       <div>
-        {finish ? <Navigate to="/Planet" /> : 
-        <video autoPlay muted loop width="750" height="500" >
-          <source src="transition.mp4" type="video/mp4" />
-        </video>}
+        {finish ? <Navigate to="/Planet" /> :
+          <video autoPlay muted loop width="750" height="500" >
+            <source src="transition.mp4" type="video/mp4" />
+          </video>}
         <h1>Traveling to planet...</h1>
       </div>
     )
@@ -57,11 +57,13 @@ const GameContainer = () => {
     'sliderC': 25
   })
 
+  const [scoreBoardData, setScoreBoardData] = useState([])
+
   const { sliderA, sliderB, sliderC } = sliderData;
   const playerUrl = `https://app.pixelencounter.com/api/v2/basic/svgmonsters/image/png?size=200&saturation=${sliderA / 100}&colored=true&colorVariations=${sliderB / 100}&edgeBrightness=${sliderC / 100}&id=${playerId}`
 
   const move = (row, col, element) => {
-    if(row > clearance || col > clearance) {
+    if (row > clearance || col > clearance) {
       document.getElementById(`popup@(${row},${col})`).classList.remove('hidden')
       setTimeout(() => { document.getElementById(`popup@(${row},${col})`).classList.add('hidden') }, 1000)
       return false
@@ -88,12 +90,23 @@ const GameContainer = () => {
     setSquares(newSquares)
   }, [])
 
+  useEffect(() => {
+    const fetchData = async () => {
+      let request = await fetch('http://localhost:3001/scores')
+      let data = await request.json()
+      setScoreBoardData(data)
+      console.log(scoreBoardData)
+    }
+    fetchData()
+
+  }, [])
+
   return (
     <div style={{ marginTop: '20px' }}>
       <Router>
         <NavBar />
         <Routes>
-          <Route path="/" element = {<Instructions />} />
+          <Route path="/" element={<Instructions />} />
           <Route path="/Map" element={
             <StarMap
               squares={squares}
@@ -104,7 +117,7 @@ const GameContainer = () => {
               playerUrl={playerUrl}
               position={position}
             />} />
-          <Route path="/transition" element = {
+          <Route path="/transition" element={
             <Transition />
           } />
           <Route path="/Planet" element={
@@ -118,7 +131,7 @@ const GameContainer = () => {
               setNumberCorrect={setNumberCorrect}
               questions={questions}
               // setPlanetsCleared={setClearance}
-              planetsCleared={clearance-1}
+              planetsCleared={clearance - 1}
             />} />
           <Route path='/StatScreen' element={
             <StatScreen playerId={playerId}
@@ -128,10 +141,19 @@ const GameContainer = () => {
               getUrl={getUrl}
               lives={lives}
               numberCorrect={numberCorrect}
-              planetsCleared={clearance-1}
+              planetsCleared={clearance - 1}
             />} />
-          <Route path="/Death" element={<Death />} />
-          <Route path="/Win" element={<Win />} />
+          <Route path="/Death" element={
+            <Death
+              scoreBoardData={scoreBoardData} />
+          } />
+          <Route path="/Win" element={
+            <Win
+              lives={lives}
+              planetsCleared={clearance}
+              scoreBoardData={scoreBoardData}
+              setScoreBoardData={setScoreBoardData} />
+          } />
         </Routes>
       </Router>
     </div>
