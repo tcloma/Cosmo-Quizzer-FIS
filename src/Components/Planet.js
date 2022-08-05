@@ -80,9 +80,9 @@ const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, s
 
   return (
     <div id="closeup-planet">
-      {leaving && <Navigate to="/Map"/>}
-      {(currentQuestions === undefined) && <Navigate to="/Map" />}
+      {leaving && <Navigate to="/Map" />}
       {(lives === 0) && <Navigate to="/Death" />}
+      {(currentQuestions === undefined) && (planetId === 5 ? <Navigate to="/Win" /> : <Navigate to="/Map" />)}
 
       {startConvo ?
         <div className="dialogue-box">
