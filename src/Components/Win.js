@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Scoreboard from "./SubComponents/Scoreboard"
 
 const Win = ({ lives, planetsCleared, scoreBoardData, setScoreBoardData }) => {
 
@@ -16,6 +17,14 @@ const Win = ({ lives, planetsCleared, scoreBoardData, setScoreBoardData }) => {
     planets += '🪐'
   }
   
+  const lifeCheck = () => {
+    if (lives === 0){
+      return 'You died, loser'
+    }
+    else {
+      return 'You win, winner!'
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -37,36 +46,16 @@ const Win = ({ lives, planetsCleared, scoreBoardData, setScoreBoardData }) => {
     setSubmitted(true)
   }
 
-  
-
   return (
     <div>
-      <h1>You won, winner!</h1>
+      <h1>{lifeCheck()}</h1>
+      <a href="/"><p className="retry">Play Again?</p></a>
       <div style={{ display: "flex", justifyContent: "center" }}>
         {submitted ?
-          <table className="scoreboard">
-            <thead>
-              <tr>
-                <td>Player</td>
-                <td>Planets Cleared</td>
-                <td>Lives Remaining</td>
-              </tr>
-            </thead>
-            {scoreBoardData.map((score) => {
-              return (
-                <tbody>
-                  <tr>
-                    <td>{score.Name}</td>
-                    <td>{score.PlanetsClearead}</td>
-                    <td>{score.LivesRemaining}</td>
-                  </tr>
-                </tbody>
-              )
-            })}
-          </table>
+          <Scoreboard scoreBoardData={scoreBoardData}/>
           :
           <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='end-form'>
               <h2> Enter your name:</h2>
               <input
                 value={playerName}
@@ -75,7 +64,6 @@ const Win = ({ lives, planetsCleared, scoreBoardData, setScoreBoardData }) => {
               />
               <button type="submit"> Submit </button>
             </form>
-            <a href="/">Play Again?</a>
           </>
         }
       </div>

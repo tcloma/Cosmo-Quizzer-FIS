@@ -28,6 +28,15 @@ button:hover {
   transform: scale(1.01);
 }
 
+a:link, a:visited, a:hover, a:active{
+  text-decoration: none;
+}
+
+.retry{
+  font-size: 1.2em;
+  color: #c6bbb9;
+}
+
 #ui {
   position: absolute;
   gap: 10px;
@@ -389,12 +398,39 @@ button:hover {
   flex-direction: column;
 }
 
-.scoreboard{
-  border: 2px white solid;
+
+
+thead tr{
+  background-color: #1c181f;
+  box-shadow: 1px 1px 20px #3a3b3c;
 }
 
-.scoreboard td{
-  color:
+td{
+  padding: 1em 3em;
+}
+
+.scoreboard tbody tr:nth-child(odd){
+  background-color: #342b3b;
+}
+
+.scoreboard tbody tr:nth-child(even){
+  background-color: #1c181f;
+}
+
+.end-form{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.end-form input{
+  padding: 1em 1em;
+  font-size: 1.5em;
+}
+
+.end-form h2{
+  font-size: 1.5em;
+  margin-bottom: -.3em;
 }
 
 /* Fonts */

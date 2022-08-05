@@ -11,7 +11,6 @@ import NavBar from './NavBar';
 import StatScreen from "./StatScreen";
 import questions from "../questions";
 import Instructions from "./Instructions";
-import Death from "./Death";
 import Win from "./Win";
 
 const GameContainer = () => {
@@ -144,8 +143,11 @@ const GameContainer = () => {
               planetsCleared={clearance - 1}
             />} />
           <Route path="/Death" element={
-            <Death
-              scoreBoardData={scoreBoardData} />
+            <Win
+              lives={lives}
+              planetsCleared={clearance}
+              scoreBoardData={scoreBoardData}
+              setScoreBoardData={setScoreBoardData} />
           } />
           <Route path="/Win" element={
             <Win
