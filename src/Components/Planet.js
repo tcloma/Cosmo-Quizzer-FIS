@@ -66,7 +66,7 @@ const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, s
   }, [])
 
   const checkAnswer = (correct) => {
-    console.log(correct)
+    correct ? alert("correct!") : alert("incorrect!")
     if (correct === true) {
       setQuestionId(questionId => questionId + 1)
       setTimeRemaining(15)

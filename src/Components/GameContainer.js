@@ -27,7 +27,7 @@ const GameContainer = () => {
     useEffect(() => {
       setTimeout(() => {
         setFinish(true);
-      }, 500)
+      }, 2000)
     })
 
     return (
