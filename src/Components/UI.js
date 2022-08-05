@@ -1,14 +1,23 @@
+import { useState } from "react"
+import { Navigate } from "react-router-dom"
+
 const UI = () => {
 
+  const [leaving, setLeaving] = useState(false)
+
+
   const handleClick = () => {
-    console.log('Hi')
+    setLeaving(true)
   }
+
+
 
   return(
     <div id="ui">
-      <h1 onClick={handleClick}>
-        X
-      </h1>
+      {leaving && <Navigate to="/Map" />}
+      <h3 onClick={handleClick}>
+        Click here when ready to start/continue the game!
+      </h3>
     </div>
   )
 }

@@ -84,7 +84,7 @@ a:link, a:visited, a:hover, a:active{
 #ui {
   position: absolute;
   gap: 10px;
-  top: -20px;
+  top: 10px;
   left: 10px;
 }
 

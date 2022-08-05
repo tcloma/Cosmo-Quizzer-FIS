@@ -27,7 +27,7 @@ const GameContainer = () => {
     useEffect(() => {
       setTimeout(() => {
         setFinish(true);
-      }, 500)
+      }, 2000)
     })
 
     return (
@@ -144,6 +144,7 @@ const GameContainer = () => {
             />} />
           <Route path="/Death" element={
             <Win
+              lost={true}
               lives={lives}
               planetsCleared={clearance}
               scoreBoardData={scoreBoardData}
@@ -151,6 +152,7 @@ const GameContainer = () => {
           } />
           <Route path="/Win" element={
             <Win
+              lost={false}
               lives={lives}
               planetsCleared={clearance}
               scoreBoardData={scoreBoardData}

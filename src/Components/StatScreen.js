@@ -4,7 +4,6 @@ import PlanetGallery from "./SubComponents/PlanetGallery";
 import CharacterGenerator from "./SubComponents/CharacterGenerator";
 import QuestionLogCard from "./SubComponents/QuestionLogCard";
 import UI from "./UI";
-
 const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, playerUrl, getUrl, lives, numberCorrect, planetsCleared }) => {
 
   // States for ternary
