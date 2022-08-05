@@ -9,12 +9,6 @@ const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, playerUr
 
   // States for ternary
   const [showQuestions, setShowQuestions] = useState(false)
-  const [customQuestions, setCustomQuestions] = useState(false)
-
-  // State for controlled form
-  const [newPrompt, setNewPrompt] = useState('')
-  const [newAnswers, setNewAnswers] = useState([])
-  const [newCorrect, setNewCorrect] = useState(0)
 
   let localArray = []
   questions.map((object, index) => {
@@ -23,17 +17,6 @@ const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, playerUr
       // console.log(localArray)
     }
   })
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log(newAnswers.split(','))
-    const formData = {
-      'prompt': newPrompt,
-      'answers': newAnswers.split(','),
-      'correctIndex': newCorrect-1
-    }
-    console.log(formData)
-  }
 
   return (
     <>
@@ -72,37 +55,12 @@ const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, playerUr
           getUrl={getUrl}
           showQuestions={showQuestions}
           setShowQuestions={setShowQuestions}
-          customQuestions={customQuestions}
-          setCustomQuestions={setCustomQuestions}
           planetsCleared={planetsCleared}
         />
 
         {showQuestions ?
         <div className="log-container">
-        {customQuestions ? 
-          <form onSubmit={handleSubmit} className='question-form'>
-            <input 
-            value={newPrompt}
-            onChange={(e) => setNewPrompt(e.target.value)}
-            type='text' 
-            name='prompt'
-            placeholder="Question"/>
-            <input
-            value={newAnswers}
-            onChange={(e) => setNewAnswers(e.target.value)}
-            type='text'
-            name='answers'
-            placeholder="Choices"/>
-            <input 
-            value={newCorrect}
-            onChange={(e) => setNewCorrect(e.target.value)}
-            type='number'
-            name='correct-choice'
-            placeholder="Correct choice" />
-            <button> Submit Question </button>
-          </form>
-        : 
-              localArray.map((question, index) => {
+              {localArray.map((question, index) => {
                 return <QuestionLogCard key={index} questionObject={question} />
               })}
         </div>

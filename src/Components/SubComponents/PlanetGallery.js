@@ -1,4 +1,4 @@
-const PlanetGallery = ({ getUrl, showQuestions, setShowQuestions, planetsCleared, customQuestions, setCustomQuestions }) => {
+const PlanetGallery = ({ getUrl, showQuestions, setShowQuestions, planetsCleared }) => {
 
   const setStyle = (index) => {
     if(index < planetsCleared){
@@ -34,7 +34,6 @@ const PlanetGallery = ({ getUrl, showQuestions, setShowQuestions, planetsCleared
       </div>
       <div className="stat-buttons">
         <button onClick={() => setShowQuestions(!showQuestions)}> Question Log </button>
-        <button onClick={() => { setShowQuestions(!showQuestions);setCustomQuestions(!customQuestions)}}> Custom Questions </button>
       </div>
     </div>
   )

@@ -1,0 +1,10 @@
+{
+  "scores": [
+    {
+      "id": 1,
+      "Name": "Test",
+      "PlanetsCleared": 0,
+      "LivesRemaining": 0
+    }
+  ]
+}
