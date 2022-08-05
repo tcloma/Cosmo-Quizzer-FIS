@@ -62,7 +62,7 @@ const Planet = ({ planetId, playerUrl, getUrl, lives, setLives, numberCorrect, s
     setTimeout(() => {
       setTimerStart(true)
       setStartConvo(false)
-    }, 5000)
+    }, 9000)
   }, [])
 
   const checkAnswer = (correct) => {

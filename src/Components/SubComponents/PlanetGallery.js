@@ -34,7 +34,7 @@ const PlanetGallery = ({ getUrl, showQuestions, setShowQuestions, planetsCleared
       </div>
       <div className="stat-buttons">
         <button onClick={() => setShowQuestions(!showQuestions)}> Question Log </button>
-        <button> Other Button </button>
+        <button> Custom Questions </button>
       </div>
     </div>
   )

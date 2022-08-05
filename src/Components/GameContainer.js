@@ -11,7 +11,6 @@ import NavBar from './NavBar';
 import StatScreen from "./StatScreen";
 import questions from "../questions";
 import Instructions from "./Instructions";
-import Death from "./Death";
 
 const GameContainer = () => {
 
@@ -19,9 +18,6 @@ const GameContainer = () => {
 
   const ROWS = 6
   const COLS = 6
-
-  const [cleared, setCleared] = useState(false);
-
 
   const Transition = () => {
 
@@ -58,7 +54,6 @@ const GameContainer = () => {
     'sliderB': 50,
     'sliderC': 25
   })
-  const [questionArray, setQuestionArray] = useState([])
 
   const { sliderA, sliderB, sliderC } = sliderData;
   const playerUrl = `https://app.pixelencounter.com/api/v2/basic/svgmonsters/image/png?size=200&saturation=${sliderA / 100}&colored=true&colorVariations=${sliderB / 100}&edgeBrightness=${sliderC / 100}&id=${playerId}`
@@ -71,11 +66,7 @@ const GameContainer = () => {
     }
     setPosition([row, col])
     //squares[row][col].hidden = false;
-    if (element.type === "planet") {
-      let visited = false
-      element.hidden ? setClearance(clearance + 1) : visited=true;
-      setCleared(visited)
-    }
+    if (element.type === "planet" && element.hidden) setClearance(clearance + 1)
     if (element.hidden) {
       let newSquares = [...squares];
       newSquares[row][col].hidden = false;
@@ -86,7 +77,7 @@ const GameContainer = () => {
 
   useEffect(() => {
     let newSquares = [...Array(ROWS)].map(() => [...Array(COLS)].map(() => { return { hidden: true, img: "", type: "empty", subtype: "" } }))
-    newSquares[0][0] = { hidden: false, img: "Earth.jpg", type: "planet", subtype: "home" }; //Replace this with our starter planet
+    newSquares[0][0] = { hidden: false, img: "Earth.png", type: "planet", subtype: "home" }; //Replace this with our starter planet
     for (let distance = 1; distance < ROWS; distance++) {
       const randomPos = Math.floor(Math.random() * (distance + distance + 1)) - distance
       const nextPlanet = { hidden: true, img: getUrl(distance), type: "planet", subtype: `${distance}` }
@@ -126,7 +117,6 @@ const GameContainer = () => {
               questions={questions}
               // setPlanetsCleared={setClearance}
               planetsCleared={clearance-1}
-              cleared={cleared}
             />} />
           <Route path='/StatScreen' element={
             <StatScreen playerId={playerId}
@@ -137,12 +127,7 @@ const GameContainer = () => {
               lives={lives}
               numberCorrect={numberCorrect}
               planetsCleared={clearance-1}
-              questionArray={questionArray}
-              setQuestionArray={setQuestionArray}
             />} />
-          <Route path="/Death" element={
-            <Death />
-          } />
         </Routes>
       </Router>
     </div>

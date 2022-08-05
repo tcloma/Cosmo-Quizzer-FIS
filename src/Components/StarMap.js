@@ -72,9 +72,9 @@ const StarMap = ({ROWS, COLS, squares, setPlanetId, move, playerUrl, position}) 
               <div className="popup hidden" id={`popup@(${row},${col})`}
               style={{
                 position: "absolute",
-                backgroundColor: "#000",
-                maxWidth: "13vh"
-              }}>You can't go here (find planets!)</div>
+                backgroundColor: 'transparent',
+                maxWidth: "13vh",
+              }}>Find the planet on your current color radial before proceeding</div>
               {(position[0] === row && position[1] === col) 
                 ? <img src={playerUrl} alt="player" style={{height:"70%", width:"51%", marginTop:"15%"}}/>
                 : <p style={{ fontSize: "0.2em" }}>{`${row}, ${col}`}</p>}

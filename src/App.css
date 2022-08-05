@@ -25,7 +25,7 @@ button {
 button:hover {
   transition-duration: 0.1s;
   box-shadow: 0px 0px 10px black;
-  /* transform: scale(1.01); */
+  transform: scale(1.01);
 }
 
 #ui {

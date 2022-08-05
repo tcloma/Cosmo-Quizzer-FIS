@@ -43,10 +43,11 @@ const StatScreen = ({ playerId, setPlayerId, setSliderData, sliderData, playerUr
 
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <div className="mid-text">
-            <h3> Planets Cleared </h3>
-            <span> 🪐{planetsCleared} ✅{numberCorrect} ❤️{lives} </span>
+            <h3> Planets Discovered </h3>
+            <span> ✅{numberCorrect} ❤️{lives} </span>
           </div>
         </div>
+        
         <PlanetGallery
           getUrl={getUrl}
           showQuestions={showQuestions}
