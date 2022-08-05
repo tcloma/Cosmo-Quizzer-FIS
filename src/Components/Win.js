@@ -46,13 +46,17 @@ const Win = ({ lives, planetsCleared, scoreBoardData, setScoreBoardData }) => {
     setSubmitted(true)
   }
 
+  const sortedScoreBoard = [...scoreBoardData].sort((score1, score2) => {
+    return score2.LivesRemaining.localeCompare(score1.LivesRemaining)
+  })
+
   return (
     <div>
       <h1>{lifeCheck()}</h1>
       <a href="/"><p className="retry">Play Again?</p></a>
       <div style={{ display: "flex", justifyContent: "center" }}>
         {submitted ?
-          <Scoreboard scoreBoardData={scoreBoardData}/>
+          <Scoreboard scoreBoardData={sortedScoreBoard}/>
           :
           <>
             <form onSubmit={handleSubmit} className='end-form'>
