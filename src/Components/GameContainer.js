@@ -103,7 +103,6 @@ const GameContainer = () => {
   return (
     <div style={{ marginTop: '20px' }}>
       <Router>
-        <NavBar />
         <Routes>
           <Route path="/" element={<Instructions />} />
           <Route path="/Map" element={
