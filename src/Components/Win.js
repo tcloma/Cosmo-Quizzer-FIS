@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Scoreboard from "./SubComponents/Scoreboard"
 
-const Win = ({ lives, planetsCleared, scoreBoardData, setScoreBoardData }) => {
+const Win = ({ lost, lives, planetsCleared, scoreBoardData, setScoreBoardData }) => {
 
   const [playerName, setPlayerName] = useState('')
   const [submitted, setSubmitted] = useState(false)
@@ -18,7 +18,7 @@ const Win = ({ lives, planetsCleared, scoreBoardData, setScoreBoardData }) => {
   }
   
   const lifeCheck = () => {
-    if (lives === 0){
+    if (lost){
       return 'You died, loser'
     }
     else {
