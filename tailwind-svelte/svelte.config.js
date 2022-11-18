@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 import sveltePreprocess from 'svelte-preprocess'
 
 export default {
