@@ -1,7 +1,7 @@
 # Cosmo Quizzer ++ (Now with 100% more Svelte!!)
 
 #### The entirety of this project is currently being converted into Svelte + TailwindCSS
-Overall Progress:
+#### Overall Progress:  
 ![](https://geps.dev/progress/0)
 
 ### Why?
