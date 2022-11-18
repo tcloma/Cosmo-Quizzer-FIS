@@ -2,6 +2,8 @@
 
 #### The entirety of this project is currently being converted into Svelte + TailwindCSS
 
+![](https://geps.dev/progress/0)
+
 ### Why?
 
 -   To learn and experiment with Svelte
